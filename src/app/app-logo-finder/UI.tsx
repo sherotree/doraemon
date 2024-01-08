@@ -45,7 +45,7 @@ export default function UI() {
           files: [],
           dropMetadata: { name: e.target.dataset.name, url: e.target.src },
         },
-        pluginId: 'app-logo-finder',
+        pluginId: '1110011',
       },
       '*',
     );
