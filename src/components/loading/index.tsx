@@ -1,6 +1,8 @@
 import './index.css';
 
-const Loading = ({ content }) => {
+const Loading = (props: any) => {
+  const { content } = props;
+
   return (
     <div className="flex w-40 flex-col justify-center">
       <div className="typing-indicator">
