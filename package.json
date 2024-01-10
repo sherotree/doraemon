@@ -11,6 +11,8 @@
   "prettier": "prettier-config-sherotree",
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
+    "@react-three/drei": "^9.93.0",
+    "@react-three/fiber": "^8.15.13",
     "antd": "^5.12.8",
     "clsx": "^2.1.0",
     "copy-text-to-clipboard": "^3.2.0",
@@ -20,9 +22,12 @@
     "i18next": "^23.7.16",
     "lodash": "^4.17.21",
     "next": "14.0.4",
+    "qrcode.react": "^3.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-i18next": "^14.0.0",
+    "recharts": "^2.10.4",
+    "three": "^0.160.0",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
@@ -31,6 +36,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.160.0",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "prettier-config-sherotree": "^0.0.1",
