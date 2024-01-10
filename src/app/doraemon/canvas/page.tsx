@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { emit } from '../emit';
 import { dataURL2Unit8Array } from '../utils/data-url-to-unit8-array';
 
-export default function Canvas(props: any) {
+export default function Canvas() {
   const canvasRef = useRef<any>(null!);
 
   const draw = (ctx: any) => {
@@ -23,7 +23,6 @@ export default function Canvas(props: any) {
   return (
     <canvas
       ref={canvasRef}
-      {...props}
       onClick={() => {
         const canvas = canvasRef.current;
         const dataURL = canvas.toDataURL('image/png');
