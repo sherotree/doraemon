@@ -1,0 +1,1034 @@
+[
+  {
+    "token": "--figma-color-bg",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "#2c2c2c",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-bg-brand",
+    "light": "#0d99ff",
+    "dark": "#0c8ce9",
+    "figjam": "#9747ff"
+  },
+  {
+    "token": "--figma-color-bg-brand-hover",
+    "light": "#007be5",
+    "dark": "#0a6dc2",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-bg-brand-pressed",
+    "light": "#007be5",
+    "dark": "#0a6dc2",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-bg-brand-secondary",
+    "light": "#0768cf",
+    "dark": "#105cad",
+    "figjam": "#7c2bda"
+  },
+  {
+    "token": "--figma-color-bg-brand-tertiary",
+    "light": "#e5f4ff",
+    "dark": "#394360",
+    "figjam": "#f1e5ff"
+  },
+  {
+    "token": "--figma-color-bg-component",
+    "light": "#9747ff",
+    "dark": "#8a38f5",
+    "figjam": "#9747ff"
+  },
+  {
+    "token": "--figma-color-bg-component-hover",
+    "light": "#8638e5",
+    "dark": "#7a2ed6",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-bg-component-pressed",
+    "light": "#8638e5",
+    "dark": "#7a2ed6",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-bg-component-secondary",
+    "light": "#7c2bda",
+    "dark": "#652ca8",
+    "figjam": "#7c2bda"
+  },
+  {
+    "token": "--figma-color-bg-component-tertiary",
+    "light": "#f1e5ff",
+    "dark": "#473956",
+    "figjam": "#f1e5ff"
+  },
+  {
+    "token": "--figma-color-bg-danger",
+    "light": "#f24822",
+    "dark": "#e03e1a",
+    "figjam": "#f24822"
+  },
+  {
+    "token": "--figma-color-bg-danger-hover",
+    "light": "#dc3412",
+    "dark": "#c4381c",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-bg-danger-pressed",
+    "light": "#dc3412",
+    "dark": "#c4381c",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-bg-danger-secondary",
+    "light": "#bd2915",
+    "dark": "#963323",
+    "figjam": "#bd2915"
+  },
+  {
+    "token": "--figma-color-bg-danger-tertiary",
+    "light": "#ffe2e0",
+    "dark": "#7c2622",
+    "figjam": "#ffe2e0"
+  },
+  {
+    "token": "--figma-color-bg-disabled",
+    "light": "#d9d9d9",
+    "dark": "#757575",
+    "figjam": "#d9d9d9"
+  },
+  {
+    "token": "--figma-color-bg-disabled-secondary",
+    "light": "#b3b3b3",
+    "dark": "#b3b3b3",
+    "figjam": "#b3b3b3"
+  },
+  {
+    "token": "--figma-color-bg-hover",
+    "light": "#f5f5f5",
+    "dark": "#383838",
+    "figjam": "#f5f5f5"
+  },
+  {
+    "token": "--figma-color-bg-inverse",
+    "light": "#2c2c2c",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "#2c2c2c"
+  },
+  {
+    "token": "--figma-color-bg-onselected",
+    "light": "#bde3ff",
+    "dark": "#667799",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-bg-onselected-hover",
+    "light": "#bde3ff",
+    "dark": "#667799",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-bg-onselected-pressed",
+    "light": "#bde3ff",
+    "dark": "#667799",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-bg-pressed",
+    "light": "#f5f5f5",
+    "dark": "#383838",
+    "figjam": "#f5f5f5"
+  },
+  {
+    "token": "--figma-color-bg-secondary",
+    "light": "#f5f5f5",
+    "dark": "#383838",
+    "figjam": "#f5f5f5"
+  },
+  {
+    "token": "--figma-color-bg-selected",
+    "light": "#e5f4ff",
+    "dark": "#4a5878",
+    "figjam": "#f1e5ff"
+  },
+  {
+    "token": "--figma-color-bg-selected-hover",
+    "light": "#bde3ff",
+    "dark": "#536383",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-bg-selected-pressed",
+    "light": "#bde3ff",
+    "dark": "#536383",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-bg-selected-secondary",
+    "light": "#f2f9ff",
+    "dark": "#394360",
+    "figjam": "#f9f5ff"
+  },
+  {
+    "token": "--figma-color-bg-selected-strong",
+    "light": "#0d99ff",
+    "dark": "#0c8ce9",
+    "figjam": "#9747ff"
+  },
+  {
+    "token": "--figma-color-bg-selected-tertiary",
+    "light": "#f2f9ff",
+    "dark": "#394360",
+    "figjam": "#f9f5ff"
+  },
+  {
+    "token": "--figma-color-bg-success",
+    "light": "#14ae5c",
+    "dark": "#198f51",
+    "figjam": "#14ae5c"
+  },
+  {
+    "token": "--figma-color-bg-success-hover",
+    "light": "#009951",
+    "dark": "#078348",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-bg-success-pressed",
+    "light": "#009951",
+    "dark": "#078348",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-bg-success-secondary",
+    "light": "#008043",
+    "dark": "#0a5c35",
+    "figjam": "#008043"
+  },
+  {
+    "token": "--figma-color-bg-success-tertiary",
+    "light": "#cff7d3",
+    "dark": "#0a4c2d",
+    "figjam": "#cff7d3"
+  },
+  {
+    "token": "--figma-color-bg-tertiary",
+    "light": "#e6e6e6",
+    "dark": "#444444",
+    "figjam": "#e6e6e6"
+  },
+  {
+    "token": "--figma-color-bg-warning",
+    "light": "#ffcd29",
+    "dark": "#f3c11b",
+    "figjam": "#ffcd29"
+  },
+  {
+    "token": "--figma-color-bg-warning-hover",
+    "light": "#ffc21a",
+    "dark": "#f2b50d",
+    "figjam": "#ffc21a"
+  },
+  {
+    "token": "--figma-color-bg-warning-pressed",
+    "light": "#ffc21a",
+    "dark": "#f2b50d",
+    "figjam": "#ffc21a"
+  },
+  {
+    "token": "--figma-color-bg-warning-secondary",
+    "light": "#fab815",
+    "dark": "#e4a711",
+    "figjam": "#fab815"
+  },
+  {
+    "token": "--figma-color-bg-warning-tertiary",
+    "light": "#fff1c2",
+    "dark": "#c58011",
+    "figjam": "#fff1c2"
+  },
+  {
+    "token": "--figma-color-border",
+    "light": "#e6e6e6",
+    "dark": "#444444",
+    "figjam": "#e6e6e6"
+  },
+  {
+    "token": "--figma-color-border-brand",
+    "light": "#bde3ff",
+    "dark": "#105cad",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-border-brand-strong",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-border-component",
+    "light": "#e4ccff",
+    "dark": "#652ca8",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-border-component-hover",
+    "light": "#9747ff",
+    "dark": "#8a38f5",
+    "figjam": "#9747ff"
+  },
+  {
+    "token": "--figma-color-border-component-strong",
+    "light": "#8638e5",
+    "dark": "#d6b6fb",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-border-danger",
+    "light": "#ffc7c2",
+    "dark": "#963323",
+    "figjam": "#ffc7c2"
+  },
+  {
+    "token": "--figma-color-border-danger-strong",
+    "light": "#dc3412",
+    "dark": "#fca397",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-border-disabled",
+    "light": "#e6e6e6",
+    "dark": "#444444",
+    "figjam": "#e6e6e6"
+  },
+  {
+    "token": "--figma-color-border-disabled-strong",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-border-onbrand",
+    "light": "#007be5",
+    "dark": "#0a6dc2",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-border-onbrand-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-border-oncomponent",
+    "light": "#8638e5",
+    "dark": "#7a2ed6",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-border-oncomponent-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-border-ondanger",
+    "light": "#dc3412",
+    "dark": "#c4381c",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-border-ondanger-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-border-onselected",
+    "light": "#bde3ff",
+    "dark": "#667799",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-border-onselected-strong",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 0.9)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-border-onsuccess",
+    "light": "#009951",
+    "dark": "#078348",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-border-onsuccess-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-border-onwarning",
+    "light": "#fab815",
+    "dark": "#e4a711",
+    "figjam": "#fab815"
+  },
+  {
+    "token": "--figma-color-border-onwarning-strong",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(0, 0, 0, 0.9)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-border-selected",
+    "light": "#0d99ff",
+    "dark": "#0c8ce9",
+    "figjam": "#9747ff"
+  },
+  {
+    "token": "--figma-color-border-selected-strong",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-border-strong",
+    "light": "#2c2c2c",
+    "dark": "rgba(255, 255, 255, 0.9)",
+    "figjam": "#2c2c2c"
+  },
+  {
+    "token": "--figma-color-border-success",
+    "light": "#aff4c6",
+    "dark": "#0a5c35",
+    "figjam": "#aff4c6"
+  },
+  {
+    "token": "--figma-color-border-success-strong",
+    "light": "#009951",
+    "dark": "#79d297",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-border-warning",
+    "light": "#ffe8a3",
+    "dark": "#925711",
+    "figjam": "#ffe8a3"
+  },
+  {
+    "token": "--figma-color-border-warning-strong",
+    "light": "#b86200",
+    "dark": "#f7d15f",
+    "figjam": "#b86200"
+  },
+  {
+    "token": "--figma-color-icon",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-brand",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-brand-pressed",
+    "light": "#0768cf",
+    "dark": "#0c8ce9",
+    "figjam": "#7c2bda"
+  },
+  {
+    "token": "--figma-color-icon-brand-secondary",
+    "light": "#80caff",
+    "dark": "#536383",
+    "figjam": "#d9b8ff"
+  },
+  {
+    "token": "--figma-color-icon-brand-tertiary",
+    "light": "#bde3ff",
+    "dark": "#394360",
+    "figjam": "#e4ccff"
+  },
+  {
+    "token": "--figma-color-icon-component",
+    "light": "#8638e5",
+    "dark": "#d1a8ff",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-component-pressed",
+    "light": "#7c2bda",
+    "dark": "#d6b6fb",
+    "figjam": "#7c2bda"
+  },
+  {
+    "token": "--figma-color-icon-component-secondary",
+    "light": "#c5b2dc",
+    "dark": "#6b5884",
+    "figjam": "#c5b2dc"
+  },
+  {
+    "token": "--figma-color-icon-component-tertiary",
+    "light": "#c5b2dc",
+    "dark": "#6b5884",
+    "figjam": "#c5b2dc"
+  },
+  {
+    "token": "--figma-color-icon-danger",
+    "light": "#f24822",
+    "dark": "#e03e1a",
+    "figjam": "#f24822"
+  },
+  {
+    "token": "--figma-color-icon-danger-hover",
+    "light": "#bd2915",
+    "dark": "#fbbcb6",
+    "figjam": "#bd2915"
+  },
+  {
+    "token": "--figma-color-icon-danger-pressed",
+    "light": "#bd2915",
+    "dark": "#fbbcb6",
+    "figjam": "#bd2915"
+  },
+  {
+    "token": "--figma-color-icon-danger-secondary",
+    "light": "#f24822",
+    "dark": "#e03e1a",
+    "figjam": "#f24822"
+  },
+  {
+    "token": "--figma-color-icon-danger-secondary-hover",
+    "light": "#f24822",
+    "dark": "#e03e1a",
+    "figjam": "#f24822"
+  },
+  {
+    "token": "--figma-color-icon-danger-tertiary",
+    "light": "#f24822",
+    "dark": "#e03e1a",
+    "figjam": "#f24822"
+  },
+  {
+    "token": "--figma-color-icon-disabled",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-icon-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-onbrand",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-onbrand-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-icon-onbrand-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-icon-oncomponent",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-oncomponent-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-icon-oncomponent-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-icon-ondanger",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-ondanger-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-icon-ondanger-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-icon-ondisabled",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "#2c2c2c",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-oninverse",
+    "light": "rgba(255, 255, 255, 0.9)",
+    "dark": "rgba(0, 0, 0, 0.9)",
+    "figjam": "rgba(255, 255, 255, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-onselected",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-onselected-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(255, 255, 255, 0.7)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-icon-onselected-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-onselected-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-icon-onsuccess",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-icon-onsuccess-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-icon-onsuccess-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-icon-onwarning",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(0, 0, 0, 0.9)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-onwarning-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(0, 0, 0, 0.5)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-icon-onwarning-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(0, 0, 0, 0.3)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-icon-pressed",
+    "light": "#007be5",
+    "dark": "#0a6dc2",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(255, 255, 255, 0.7)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-icon-secondary-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-selected",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-selected-secondary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-selected-tertiary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-icon-success",
+    "light": "#14ae5c",
+    "dark": "#198f51",
+    "figjam": "#14ae5c"
+  },
+  {
+    "token": "--figma-color-icon-success-pressed",
+    "light": "#008043",
+    "dark": "#a1e8b9",
+    "figjam": "#008043"
+  },
+  {
+    "token": "--figma-color-icon-success-secondary",
+    "light": "#14ae5c",
+    "dark": "#198f51",
+    "figjam": "#14ae5c"
+  },
+  {
+    "token": "--figma-color-icon-success-tertiary",
+    "light": "#14ae5c",
+    "dark": "#198f51",
+    "figjam": "#14ae5c"
+  },
+  {
+    "token": "--figma-color-icon-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-icon-tertiary-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-icon-warning",
+    "light": "#ffcd29",
+    "dark": "#f3c11b",
+    "figjam": "#ffcd29"
+  },
+  {
+    "token": "--figma-color-icon-warning-pressed",
+    "light": "#b86200",
+    "dark": "#f7d15f",
+    "figjam": "#b86200"
+  },
+  {
+    "token": "--figma-color-icon-warning-secondary",
+    "light": "#ffcd29",
+    "dark": "#f3c11b",
+    "figjam": "#ffcd29"
+  },
+  {
+    "token": "--figma-color-icon-warning-tertiary",
+    "light": "#ffcd29",
+    "dark": "#f3c11b",
+    "figjam": "#ffcd29"
+  },
+  {
+    "token": "--figma-color-text",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-brand",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-brand-secondary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-brand-tertiary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-component",
+    "light": "#8638e5",
+    "dark": "#d1a8ff",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-component-pressed",
+    "light": "#7c2bda",
+    "dark": "#d6b6fb",
+    "figjam": "#7c2bda"
+  },
+  {
+    "token": "--figma-color-text-component-secondary",
+    "light": "#c5b2dc",
+    "dark": "#6b5884",
+    "figjam": "#c5b2dc"
+  },
+  {
+    "token": "--figma-color-text-component-tertiary",
+    "light": "#c5b2dc",
+    "dark": "#6b5884",
+    "figjam": "#c5b2dc"
+  },
+  {
+    "token": "--figma-color-text-danger",
+    "light": "#dc3412",
+    "dark": "#fca397",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-text-danger-secondary",
+    "light": "#dc3412",
+    "dark": "#fca397",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-text-danger-tertiary",
+    "light": "#dc3412",
+    "dark": "#fca397",
+    "figjam": "#dc3412"
+  },
+  {
+    "token": "--figma-color-text-disabled",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-text-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-onbrand",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-onbrand-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-text-onbrand-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-text-oncomponent",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-oncomponent-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-text-oncomponent-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-text-ondanger",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-ondanger-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-text-ondanger-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-text-ondisabled",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "#2c2c2c",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-oninverse",
+    "light": "rgba(255, 255, 255, 0.9)",
+    "dark": "rgba(0, 0, 0, 0.9)",
+    "figjam": "rgba(255, 255, 255, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-onselected",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 0.9)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-onselected-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(255, 255, 255, 0.7)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-text-onselected-strong",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-onselected-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-text-onsuccess",
+    "light": "rgba(255, 255, 255, 1)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(255, 255, 255, 1)"
+  },
+  {
+    "token": "--figma-color-text-onsuccess-secondary",
+    "light": "rgba(255, 255, 255, 0.8)",
+    "dark": "rgba(255, 255, 255, 0.8)",
+    "figjam": "rgba(255, 255, 255, 0.8)"
+  },
+  {
+    "token": "--figma-color-text-onsuccess-tertiary",
+    "light": "rgba(255, 255, 255, 0.4)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+    "token": "--figma-color-text-onwarning",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(0, 0, 0, 0.9)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-onwarning-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(0, 0, 0, 0.5)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-text-onwarning-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(0, 0, 0, 0.3)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-text-secondary",
+    "light": "rgba(0, 0, 0, 0.5)",
+    "dark": "rgba(255, 255, 255, 0.7)",
+    "figjam": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+    "token": "--figma-color-text-secondary-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-selected",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-selected-secondary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-selected-tertiary",
+    "light": "#007be5",
+    "dark": "#7cc4f8",
+    "figjam": "#8638e5"
+  },
+  {
+    "token": "--figma-color-text-success",
+    "light": "#009951",
+    "dark": "#79d297",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-text-success-secondary",
+    "light": "#009951",
+    "dark": "#79d297",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-text-success-tertiary",
+    "light": "#009951",
+    "dark": "#79d297",
+    "figjam": "#009951"
+  },
+  {
+    "token": "--figma-color-text-tertiary",
+    "light": "rgba(0, 0, 0, 0.3)",
+    "dark": "rgba(255, 255, 255, 0.4)",
+    "figjam": "rgba(0, 0, 0, 0.3)"
+  },
+  {
+    "token": "--figma-color-text-tertiary-hover",
+    "light": "rgba(0, 0, 0, 0.9)",
+    "dark": "rgba(255, 255, 255, 1)",
+    "figjam": "rgba(0, 0, 0, 0.9)"
+  },
+  {
+    "token": "--figma-color-text-warning",
+    "light": "#b86200",
+    "dark": "#f7d15f",
+    "figjam": "#b86200"
+  },
+  {
+    "token": "--figma-color-text-warning-secondary",
+    "light": "#b86200",
+    "dark": "#f7d15f",
+    "figjam": "#b86200"
+  },
+  {
+    "token": "--figma-color-text-warning-tertiary",
+    "light": "#b86200",
+    "dark": "#f7d15f",
+    "figjam": "#b86200"
+  }
+]
