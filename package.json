@@ -19,6 +19,7 @@
     "fig-components": "^1.0.8",
     "fig-css": "^1.0.2",
     "fig-tools": "^1.0.1",
+    "html-to-image": "1.11.11",
     "i18next": "^23.7.16",
     "lodash": "^4.17.21",
     "next": "14.0.4",
