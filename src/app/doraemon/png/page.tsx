@@ -31,10 +31,10 @@ export default function Png() {
           // });
 
           // toSvg(ref.current).then(dataUrl => {
-          //   console.log(dataUrl);
+          //   const svg: any = decodeURIComponent(dataUrl).replace('data:image/svg+xml;charset=utf-8,', '');
           //   // const bytes = dataURL2Unit8Array(dataUrl);
-
-          //   // emit('create-from-bytes', bytes);
+          //   console.log(svg);
+          //   emit('create-from-svg', svg);
           // });
         }}
       >
