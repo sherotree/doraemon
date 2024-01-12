@@ -16,6 +16,8 @@
     "antd": "^5.12.8",
     "clsx": "^2.1.0",
     "copy-text-to-clipboard": "^3.2.0",
+    "echarts": "5.4.3",
+    "echarts-for-react": "3.0.2",
     "fig-components": "^1.0.8",
     "fig-css": "^1.0.2",
     "fig-tools": "^1.0.1",
