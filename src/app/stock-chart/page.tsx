@@ -1,6 +1,6 @@
 'use client';
 
-import { Segmented, Switch, ConfigProvider, ColorPicker } from 'antd';
+import { Segmented, Switch, ConfigProvider, ColorPicker, Button } from 'antd';
 import { useTheme } from 'fig-components';
 import { useState } from 'react';
 import { useStore } from './store';
@@ -74,20 +74,23 @@ export default function StockPage() {
 
   return (
     <ConfigProvider theme={theme}>
-      <div className="p-4 flex gap-4">
+      <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]">
         <div className="flex flex-col gap-4 flex-1">
-          <Segmented
-            options={['ShangHai Index', 'Large Scale Candlestick', 'ShangHai Index, 2015']}
-            value={category}
-            onChange={value => {
-              setCategory(value);
-            }}
-          />
+          <div>
+            <Segmented
+              options={['ShangHai Index', 'Large Scale Candlestick', 'ShangHai Index, 2015']}
+              value={category}
+              onChange={value => {
+                setCategory(value);
+              }}
+            />
+          </div>
+
           {category === 'ShangHai Index' && <Chart option={fooOption1} />}
           {category === 'Large Scale Candlestick' && <Chart option={{ dataset: { source: data2 }, ...fooOption2 }} />}
           {category === 'ShangHai Index, 2015' && <Chart option={fooOption3} />}
         </div>
-        <div className="flex flex-col gap-3 w-[200px] flex-shrink-0 items-start">
+        <div className="flex flex-col gap-3 w-[110px] flex-shrink-0 items-start">
           <div className="flex flex-col gap-1">
             <div>Dark Mode</div>
             <Switch
@@ -121,7 +124,7 @@ export default function StockPage() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <div>Positive Line Color</div>
+            <div>Positive Color</div>
             <ColorPicker
               style={{ width: 108 }}
               showText
@@ -133,7 +136,7 @@ export default function StockPage() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <div>Negative Line Color</div>
+            <div>Negative Color</div>
             <ColorPicker
               showText
               style={{ width: 108 }}
