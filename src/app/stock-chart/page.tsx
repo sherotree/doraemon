@@ -91,7 +91,7 @@ export default function StockPage() {
           <div className="flex flex-col gap-1">
             <div>Dark Mode</div>
             <Switch
-              className="w-[60px]"
+              className="w-[40px]"
               checked={config.theme === 'dark'}
               onChange={value => {
                 setConfig({ theme: value ? 'dark' : 'light' });
@@ -102,7 +102,7 @@ export default function StockPage() {
           <div className="flex flex-col gap-1">
             <div>Enabled xAxis</div>
             <Switch
-              className="w-[60px]"
+              className="w-[40px]"
               checked={config.XAxisShow}
               onChange={value => {
                 setConfig({ XAxisShow: value });
@@ -112,7 +112,7 @@ export default function StockPage() {
           <div className="flex flex-col gap-1">
             <div>Enabled yAxis</div>
             <Switch
-              className="w-[60px]"
+              className="w-[40px]"
               checked={config.YAxisShow}
               onChange={value => {
                 setConfig({ YAxisShow: value });
@@ -123,6 +123,7 @@ export default function StockPage() {
           <div className="flex flex-col gap-1">
             <div>Positive Line Color</div>
             <ColorPicker
+              style={{ width: 108 }}
               showText
               value={config.positiveColor}
               onChange={(_, color) => {
@@ -135,6 +136,7 @@ export default function StockPage() {
             <div>Negative Line Color</div>
             <ColorPicker
               showText
+              style={{ width: 108 }}
               value={config.negativeColor}
               onChange={(_, color) => {
                 setConfig({ negativeColor: color });
