@@ -3,7 +3,7 @@
 import P1 from './1.png';
 import Image from 'next/image';
 import { emit } from '../emit';
-import { dataURL2Unit8Array } from '../utils/data-url-to-unit8-array';
+import { dataURL2Unit8Array } from '@/utils/data-url-to-unit8-array';
 import { toPng, toSvg, toCanvas, toPixelData } from 'html-to-image';
 import { useRef } from 'react';
 

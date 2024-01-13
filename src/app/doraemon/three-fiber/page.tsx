@@ -5,7 +5,7 @@ import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Mesh } from 'three';
-import { dataURL2Unit8Array } from '../utils/data-url-to-unit8-array';
+import { dataURL2Unit8Array } from '@/utils/data-url-to-unit8-array';
 import { emit } from '../emit';
 
 export default function Three() {

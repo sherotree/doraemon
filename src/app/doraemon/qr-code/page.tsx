@@ -4,8 +4,8 @@ import { Input, ColorPicker, Button } from 'antd';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 import { useState } from 'react';
 import { emit } from '../emit';
-import { dataURL2Unit8Array } from '../utils/data-url-to-unit8-array';
-import { getSvgStringFromElement } from '../utils/get-svg-string-from-element';
+import { dataURL2Unit8Array } from '@/utils/data-url-to-unit8-array';
+import { getSvgStringFromElement } from '@/utils/get-svg-string-from-element';
 
 const downloadPNG = () => {
   const canvas = document.getElementById('qr-png') as HTMLCanvasElement;

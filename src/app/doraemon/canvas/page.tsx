@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { emit } from '../emit';
-import { dataURL2Unit8Array } from '../utils/data-url-to-unit8-array';
+import { dataURL2Unit8Array } from '@/utils/data-url-to-unit8-array';
 
 export default function Canvas() {
   const canvasRef = useRef<any>(null!);

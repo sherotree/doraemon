@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { emit } from '../emit';
-import { getSvgStringFromElement } from '../utils/get-svg-string-from-element';
+import { getSvgStringFromElement } from '@/utils/get-svg-string-from-element';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
