@@ -2,18 +2,27 @@
 
 import { Segmented, Switch, ConfigProvider, ColorPicker } from 'antd';
 import { useTheme } from 'fig-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useStore } from './store';
 import { option as option3 } from './option-3';
 import { option as option1 } from './option-1';
 import { option as option2 } from './option-2';
 import { data as data2 } from './data-2';
 import { Chart } from './chart';
+import grainSrc from './assets/grain.webp';
+import Loading from '@/components/loading';
 
 export default function StockPage() {
   const { config, setConfig } = useStore();
   const [category, setCategory] = useState<any>('Candlestick Example 1');
+  const [loading, setLoading] = useState<any>(true);
   const theme = useTheme();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
+  }, []);
 
   const fooOption2 = {
     ...option2,
@@ -72,9 +81,20 @@ export default function StockPage() {
     ],
   };
 
+  if (loading) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <Loading content="Loading..." />
+      </div>
+    );
+  }
+
   return (
     <ConfigProvider theme={theme}>
-      <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]">
+      <div
+        className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]"
+        // style={{ backgroundImage: `url(${grainSrc})`, backgroundColor: '#EFEDEA' }}
+      >
         <div className="flex flex-col gap-4 flex-1">
           <div>
             <Segmented
