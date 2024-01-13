@@ -1,6 +1,6 @@
 'use client';
 
-import { Segmented, Switch, ConfigProvider, ColorPicker, Button } from 'antd';
+import { Segmented, Switch, ConfigProvider, ColorPicker } from 'antd';
 import { useTheme } from 'fig-components';
 import { useState } from 'react';
 import { useStore } from './store';
@@ -12,7 +12,7 @@ import { Chart } from './chart';
 
 export default function StockPage() {
   const { config, setConfig } = useStore();
-  const [category, setCategory] = useState<any>('ShangHai Index');
+  const [category, setCategory] = useState<any>('Candlestick Example 1');
   const theme = useTheme();
 
   const fooOption2 = {
@@ -78,7 +78,7 @@ export default function StockPage() {
         <div className="flex flex-col gap-4 flex-1">
           <div>
             <Segmented
-              options={['ShangHai Index', 'Large Scale Candlestick', 'ShangHai Index, 2015']}
+              options={['Candlestick Example 1', 'Candlestick Example 2', 'Candlestick Example 3']}
               value={category}
               onChange={value => {
                 setCategory(value);
@@ -86,9 +86,9 @@ export default function StockPage() {
             />
           </div>
 
-          {category === 'ShangHai Index' && <Chart option={fooOption1} />}
-          {category === 'Large Scale Candlestick' && <Chart option={{ dataset: { source: data2 }, ...fooOption2 }} />}
-          {category === 'ShangHai Index, 2015' && <Chart option={fooOption3} />}
+          {category === 'Candlestick Example 1' && <Chart option={fooOption1} />}
+          {category === 'Candlestick Example 2' && <Chart option={{ dataset: { source: data2 }, ...fooOption2 }} />}
+          {category === 'Candlestick Example 3' && <Chart option={fooOption3} />}
         </div>
         <div className="flex flex-col gap-3 w-[110px] flex-shrink-0 items-start">
           <div className="flex flex-col gap-1">
