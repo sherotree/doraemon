@@ -1,6 +1,7 @@
 'use client';
 
-import { Segmented, Switch, Input, ColorPicker } from 'antd';
+import { Segmented, Switch, ConfigProvider, ColorPicker } from 'antd';
+import { useTheme } from 'fig-components';
 import { useState } from 'react';
 import { useStore } from './store';
 import { option as option3 } from './option-3';
@@ -12,7 +13,8 @@ import { Chart } from './chart';
 export default function StockPage() {
   const { config, setConfig } = useStore();
   const [category, setCategory] = useState<any>('ShangHai Index');
-  console.log('config', config);
+  const theme = useTheme();
+
   const fooOption2 = {
     ...option2,
     xAxis: { ...option2.xAxis, show: config.XAxisShow },
@@ -71,74 +73,76 @@ export default function StockPage() {
   };
 
   return (
-    <div className="p-4 flex gap-4">
-      <div className="flex flex-col gap-4 flex-1">
-        <Segmented
-          options={['ShangHai Index', 'Large Scale Candlestick', 'ShangHai Index, 2015']}
-          value={category}
-          onChange={value => {
-            setCategory(value);
-          }}
-        />
-        {category === 'ShangHai Index' && <Chart option={fooOption1} />}
-        {category === 'Large Scale Candlestick' && <Chart option={{ dataset: { source: data2 }, ...fooOption2 }} />}
-        {category === 'ShangHai Index, 2015' && <Chart option={fooOption3} />}
+    <ConfigProvider theme={theme}>
+      <div className="p-4 flex gap-4">
+        <div className="flex flex-col gap-4 flex-1">
+          <Segmented
+            options={['ShangHai Index', 'Large Scale Candlestick', 'ShangHai Index, 2015']}
+            value={category}
+            onChange={value => {
+              setCategory(value);
+            }}
+          />
+          {category === 'ShangHai Index' && <Chart option={fooOption1} />}
+          {category === 'Large Scale Candlestick' && <Chart option={{ dataset: { source: data2 }, ...fooOption2 }} />}
+          {category === 'ShangHai Index, 2015' && <Chart option={fooOption3} />}
+        </div>
+        <div className="flex flex-col gap-3 w-[200px] flex-shrink-0 items-start">
+          <div className="flex flex-col gap-1">
+            <div>Dark Mode</div>
+            <Switch
+              className="w-[60px]"
+              checked={config.theme === 'dark'}
+              onChange={value => {
+                setConfig({ theme: value ? 'dark' : 'light' });
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <div>Enabled xAxis</div>
+            <Switch
+              className="w-[60px]"
+              checked={config.XAxisShow}
+              onChange={value => {
+                setConfig({ XAxisShow: value });
+              }}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div>Enabled yAxis</div>
+            <Switch
+              className="w-[60px]"
+              checked={config.YAxisShow}
+              onChange={value => {
+                setConfig({ YAxisShow: value });
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <div>Positive Line Color</div>
+            <ColorPicker
+              showText
+              value={config.positiveColor}
+              onChange={(_, color) => {
+                setConfig({ positiveColor: color });
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <div>Negative Line Color</div>
+            <ColorPicker
+              showText
+              value={config.negativeColor}
+              onChange={(_, color) => {
+                setConfig({ negativeColor: color });
+              }}
+            />
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col gap-3 w-[200px] flex-shrink-0 items-start">
-        <div className="flex flex-col gap-1">
-          <div>Dark Mode</div>
-          <Switch
-            className="w-[60px]"
-            checked={config.theme === 'dark'}
-            onChange={value => {
-              setConfig({ theme: value ? 'dark' : 'light' });
-            }}
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <div>Enabled xAxis</div>
-          <Switch
-            className="w-[60px]"
-            checked={config.XAxisShow}
-            onChange={value => {
-              setConfig({ XAxisShow: value });
-            }}
-          />
-        </div>
-        <div className="flex flex-col gap-1">
-          <div>Enabled yAxis</div>
-          <Switch
-            className="w-[60px]"
-            checked={config.YAxisShow}
-            onChange={value => {
-              setConfig({ YAxisShow: value });
-            }}
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <div>Positive Line Color</div>
-          <ColorPicker
-            showText
-            value={config.positiveColor}
-            onChange={(_, color) => {
-              setConfig({ positiveColor: color });
-            }}
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <div>Negative Line Color</div>
-          <ColorPicker
-            showText
-            value={config.negativeColor}
-            onChange={(_, color) => {
-              setConfig({ negativeColor: color });
-            }}
-          />
-        </div>
-      </div>
-    </div>
+    </ConfigProvider>
   );
 }
