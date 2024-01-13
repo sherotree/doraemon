@@ -5,7 +5,7 @@ import { useStore } from './store';
 
 export function Chart(props: any) {
   const { option } = props;
-  const { theme } = useStore();
+  const { config } = useStore();
   const ref = useRef<any>(null!);
 
   return (
@@ -21,7 +21,7 @@ export function Chart(props: any) {
         style={{ width: '100%', height: 480 }}
         option={option}
         opts={{ renderer: 'svg' }}
-        theme={theme}
+        theme={config.theme}
         ref={ref}
       />
     </div>

@@ -10,9 +10,9 @@ import { data as data2 } from './data-2';
 import { Chart } from './chart';
 
 export default function StockPage() {
-  const { theme, setTheme, config, setConfig } = useStore();
+  const { config, setConfig } = useStore();
   const [category, setCategory] = useState<any>('ShangHai Index');
-
+  console.log('config', config);
   const fooOption2 = {
     ...option2,
     xAxis: { ...option2.xAxis, show: config.XAxisShow },
@@ -89,9 +89,9 @@ export default function StockPage() {
           <div>Dark Mode</div>
           <Switch
             className="w-[60px]"
-            checked={theme === 'dark'}
+            checked={config.theme === 'dark'}
             onChange={value => {
-              setTheme(value ? 'dark' : 'light');
+              setConfig({ theme: value ? 'dark' : 'light' });
             }}
           />
         </div>
