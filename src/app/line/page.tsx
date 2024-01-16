@@ -6,6 +6,8 @@ import { useStore } from './store';
 import { useTheme } from 'fig-components';
 import { useState } from 'react';
 import GeneralConfig from './component/general';
+import AxisConfig from './component/axis';
+import SeriesConfig from './component/series';
 
 export default function LinePage() {
   const { config, setConfig } = useStore();
@@ -34,6 +36,7 @@ export default function LinePage() {
         // step: 'middle', // 'start', 'middle', 'end', false
         smooth: config.smooth,
         symbol: config.symbol, // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+        areaStyle: {},
       },
     ],
   };
@@ -43,57 +46,18 @@ export default function LinePage() {
     <ConfigProvider theme={theme}>
       <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]">
         <div className="flex-1">
-          <Chart option1={configOption} />
+          <Chart option={configOption} />
         </div>
         <div className="gap-3 w-[210px] flex-shrink-0">
           <Segmented options={typeOptions} size="small" onChange={setConfigType} />
           <div className="flex flex-col gap-3 w-[210px] flex-shrink-0 items-start">
             {/* General */}
             {configType === 'General' && <GeneralConfig />}
-
-            <div className="flex flex-col gap-1">
-              <div>Enabled xAxis</div>
-              <Switch
-                className="w-[40px]"
-                checked={config.XAxisShow}
-                onChange={value => {
-                  setConfig({ XAxisShow: value });
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <div>xAxis Name</div>
-              <Input
-                className="w-[40px]"
-                allowClear
-                onChange={e => {
-                  setConfig({ XAxisName: e.target.value });
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <div>Enabled yAxis</div>
-              <Switch
-                className="w-[40px]"
-                checked={config.YAxisShow}
-                onChange={value => {
-                  setConfig({ YAxisShow: value });
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <div>yAxis Name</div>
-              <Input
-                className="w-[40px]"
-                allowClear
-                onChange={e => {
-                  setConfig({ YAxisName: e.target.value });
-                }}
-              />
-            </div>
+            {/* Axis */}
+            {configType === 'Axis' && <AxisConfig />}
+            {/* Series */}
+            {configType === 'Series' && <SeriesConfig />}
+            {/* Legend */}
           </div>
         </div>
       </div>
