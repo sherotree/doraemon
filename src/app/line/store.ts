@@ -11,6 +11,16 @@ export const useStore = create<State>(set => ({
   config: {
     theme: 'dark',
     color,
+    grid: {
+      show: true,
+      // top: 60,
+      // right: 60,
+      // bottom: 60,
+      // left: 60,
+      backgroundColor: 'transparent',
+      borderColor: '#ccc',
+      borderWidth: 0,
+    },
     // TODO: title, padding(副标题), top, right, bottom, left(容器)
     title: {
       text: 'Line Charts',

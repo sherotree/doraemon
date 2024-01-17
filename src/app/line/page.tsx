@@ -9,6 +9,7 @@ import GeneralConfig from './component/general';
 import AxisConfig from './component/axis';
 import SeriesConfig from './component/series';
 import LegendConfig from './component/legend';
+import GridConfig from './component/grid';
 
 const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid', 'Label'];
 
@@ -23,6 +24,7 @@ export default function LinePage() {
     xAxis: config.xAxis,
     yAxis: config.yAxis,
     series: config.series,
+    grid: config.grid,
   };
 
   return (
@@ -42,6 +44,9 @@ export default function LinePage() {
             {configType === 'Series' && <SeriesConfig />}
             {/* Legend */}
             {configType === 'Legend' && <LegendConfig />}
+            {/* Grid */}
+            {configType === 'Grid' && <GridConfig />}
+            {/* Label */}
           </div>
         </div>
       </div>
