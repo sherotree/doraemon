@@ -22,9 +22,9 @@ export default function GeneralConfig() {
         <div>Enabled Line Smooth</div>
         <Switch
           className="w-[40px]"
-          checked={config.smooth}
+          checked={config.series[0].smooth}
           onChange={value => {
-            setConfig({ smooth: value });
+            setConfig({ series: [{ ...config.series[0], smooth: value }] });
           }}
         />
       </div>
@@ -33,9 +33,9 @@ export default function GeneralConfig() {
         <div>Enable Symbol</div>
         <Switch
           className="w-[40px]"
-          checked={config.enableSymbol}
+          checked={config.series[0].showSymbol}
           onChange={value => {
-            setConfig({ enableSymbol: value });
+            setConfig({ series: [{ ...config.series[0], showSymbol: value }] });
           }}
         />
       </div>
@@ -47,7 +47,7 @@ export default function GeneralConfig() {
           defaultValue="circle"
           options={SymbolOptions}
           onChange={value => {
-            setConfig({ symbol: value });
+            setConfig({ series: [{ ...config.series[0], symbol: value }] });
           }}
         />
       </div>

@@ -21,17 +21,7 @@ export default function LinePage() {
     title: config.title,
     xAxis: config.xAxis,
     yAxis: config.yAxis,
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: 'line',
-        step: false,
-        // step: 'middle', // 'start', 'middle', 'end', false
-        smooth: config.smooth,
-        symbol: config.symbol, // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
-        areaStyle: {},
-      },
-    ],
+    series: config.series,
   };
 
   return (
