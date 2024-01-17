@@ -8,6 +8,7 @@ import { useState } from 'react';
 import GeneralConfig from './component/general';
 import AxisConfig from './component/axis';
 import SeriesConfig from './component/series';
+import LegendConfig from './component/legend';
 
 const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid', 'Label'];
 
@@ -40,6 +41,7 @@ export default function LinePage() {
             {/* Series */}
             {configType === 'Series' && <SeriesConfig />}
             {/* Legend */}
+            {configType === 'Legend' && <LegendConfig />}
           </div>
         </div>
       </div>

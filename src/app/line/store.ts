@@ -11,9 +11,17 @@ export const useStore = create<State>(set => ({
   config: {
     theme: 'dark',
     color,
+    // TODO: title, padding(副标题), top, right, bottom, left(容器)
     title: {
       text: 'Line Charts',
       show: true,
+      textStyle: {
+        color: '#fff',
+        fontSize: 16,
+        fontStyle: 'normal',
+        fontWeight: 'bold', // 'normal', 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+      },
+      padding: 5,
     },
     xAxis: {
       type: 'category',
@@ -47,6 +55,15 @@ export const useStore = create<State>(set => ({
         // },
       },
     ],
+    // TODO: legend, left/top/right/bottom, padding, itemWidth, itemHeight, itemStyle, textStyle, lineStyle
+    // data 可以单独设置每个图例的样式
+    legend: {
+      show: true,
+      orient: 'horizontal', // 'horizontal', 'vertical'
+      padding: 5,
+      align: 'auto', // 'auto', 'left', 'right',
+      itemGap: 10, // the distance between each item
+    },
   },
   setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
 }));
