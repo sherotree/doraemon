@@ -6,7 +6,6 @@ export default function GridConfig() {
 
   return (
     <div>
-      {/* FIXME: don't work */}
       <div className="flex flex-col gap-1">
         <div>Enabled Grid</div>
         <Switch
@@ -46,7 +45,8 @@ export default function GridConfig() {
         <div>Border Width</div>
         <InputNumber
           value={config.grid.borderWidth}
-          // min={12}
+          defaultValue={1}
+          // min={1}
           // max={64}
           onChange={value => {
             setConfig({ grid: { ...config.grid, borderWidth: value } });

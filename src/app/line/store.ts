@@ -17,9 +17,9 @@ export const useStore = create<State>(set => ({
       // right: 60,
       // bottom: 60,
       // left: 60,
-      backgroundColor: '#fff',
+      backgroundColor: '#100C2A',
       borderColor: '#ccc',
-      borderWidth: 0,
+      borderWidth: 1,
     },
     // TODO: title, padding(副标题), top, right, bottom, left(容器)
     title: {
