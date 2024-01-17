@@ -9,25 +9,18 @@ import GeneralConfig from './component/general';
 import AxisConfig from './component/axis';
 import SeriesConfig from './component/series';
 
+const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid', 'Label'];
+
 export default function LinePage() {
   const { config, setConfig } = useStore();
   const [configType, setConfigType] = useState<string | number>('General');
   const theme = useTheme();
 
   const configOption = {
-    color: [config.lineColor],
-    title: { text: config.title, show: config.titleShow },
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      show: config.XAxisShow,
-      name: config.XAxisName,
-    },
-    yAxis: {
-      type: 'value',
-      show: config.YAxisShow,
-      name: config.YAxisName,
-    },
+    color: [config.color],
+    title: config.title,
+    xAxis: config.xAxis,
+    yAxis: config.yAxis,
     series: [
       {
         data: [150, 230, 224, 218, 135, 147, 260],
@@ -40,7 +33,6 @@ export default function LinePage() {
       },
     ],
   };
-  const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid', 'Label'];
 
   return (
     <ConfigProvider theme={theme}>

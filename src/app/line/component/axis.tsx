@@ -10,9 +10,9 @@ export default function AxisConfig() {
         <div>Enabled xAxis</div>
         <Switch
           className="w-[40px]"
-          checked={config.XAxisShow}
+          checked={config.xAxis.show}
           onChange={value => {
-            setConfig({ XAxisShow: value });
+            setConfig({ xAxis: { ...config.xAxis, show: value } });
           }}
         />
       </div>
@@ -23,7 +23,7 @@ export default function AxisConfig() {
           className="w-[40px]"
           allowClear
           onChange={e => {
-            setConfig({ XAxisName: e.target.value });
+            setConfig({ xAxis: { ...config.xAxis, name: e.target.value } });
           }}
         />
       </div>
@@ -32,9 +32,9 @@ export default function AxisConfig() {
         <div>Enabled yAxis</div>
         <Switch
           className="w-[40px]"
-          checked={config.YAxisShow}
+          checked={config.yAxis.show}
           onChange={value => {
-            setConfig({ YAxisShow: value });
+            setConfig({ yAxis: { ...config.yAxis, show: value } });
           }}
         />
       </div>
@@ -45,7 +45,7 @@ export default function AxisConfig() {
           className="w-[40px]"
           allowClear
           onChange={e => {
-            setConfig({ YAxisName: e.target.value });
+            setConfig({ yAxis: { ...config.yAxis, name: e.target.value } });
           }}
         />
       </div>

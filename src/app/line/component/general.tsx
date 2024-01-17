@@ -21,9 +21,9 @@ export default function GeneralConfig() {
         <div>Show Title</div>
         <Switch
           className="w-[40px]"
-          checked={config.titleShow}
+          checked={config.title.show}
           onChange={value => {
-            setConfig({ titleShow: value });
+            setConfig({ title: { ...config.title, show: value } });
           }}
         />
       </div>
@@ -33,8 +33,9 @@ export default function GeneralConfig() {
         <Input
           className="w-[40px]"
           allowClear
+          placeholder="Line Charts"
           onChange={e => {
-            setConfig({ title: e.target.value });
+            setConfig({ title: { ...config.title, text: e.target.value } });
           }}
         />
       </div>
@@ -44,9 +45,9 @@ export default function GeneralConfig() {
         <ColorPicker
           showText
           style={{ width: 108 }}
-          value={config.lineColor}
+          value={config.color}
           onChange={(_, color) => {
-            setConfig({ lineColor: color });
+            setConfig({ color });
           }}
         />
       </div>

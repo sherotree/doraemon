@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const lineColor = '#186FE6';
+const color = '#186FE6';
 
 type State = {
   config: any;
@@ -10,11 +10,22 @@ type State = {
 export const useStore = create<State>(set => ({
   config: {
     theme: 'dark',
-    title: 'Line Charts',
-    titleShow: true,
-    XAxisShow: true,
-    YAxisShow: true,
-    lineColor,
+    title: {
+      text: 'Line Charts',
+      show: true,
+    },
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      show: true,
+      name: '',
+    },
+    yAxis: {
+      type: 'value',
+      show: true,
+      name: '',
+    },
+    color,
     smooth: false,
     enableSymbol: true,
     symbol: 'circle',
