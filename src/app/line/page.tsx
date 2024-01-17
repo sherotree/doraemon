@@ -11,7 +11,7 @@ import SeriesConfig from './component/series';
 import LegendConfig from './component/legend';
 import GridConfig from './component/grid';
 
-const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid', 'Label'];
+const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid'];
 
 export default function LinePage() {
   const { config, setConfig } = useStore();
@@ -26,7 +26,7 @@ export default function LinePage() {
     series: config.series,
     grid: config.grid,
   };
-
+  console.log(configOption, 99999);
   return (
     <ConfigProvider theme={theme}>
       <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]">

@@ -17,7 +17,7 @@ export const useStore = create<State>(set => ({
       // right: 60,
       // bottom: 60,
       // left: 60,
-      backgroundColor: 'transparent',
+      backgroundColor: '#fff',
       borderColor: '#ccc',
       borderWidth: 0,
     },

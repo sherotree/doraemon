@@ -6,6 +6,7 @@ export default function GridConfig() {
 
   return (
     <div>
+      {/* FIXME: don't work */}
       <div className="flex flex-col gap-1">
         <div>Enabled Grid</div>
         <Switch

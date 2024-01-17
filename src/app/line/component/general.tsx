@@ -42,7 +42,10 @@ export default function GeneralConfig() {
           className="w-[40px]"
           checked={config.theme === 'dark'}
           onChange={value => {
-            setConfig({ theme: value ? 'dark' : 'light' });
+            setConfig({
+              theme: value ? 'dark' : 'light',
+              grid: { ...config.grid, backgroundColor: value ? '#100C2A' : '#fff' },
+            });
           }}
         />
       </div>
