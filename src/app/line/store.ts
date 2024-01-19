@@ -63,6 +63,7 @@ export const useStore = create<State>(set => ({
         //   borderColor: '#fff',
         //   borderWidth: 2,
         // },
+        areaStyle: undefined,
       },
     ],
     // TODO: legend, left/top/right/bottom, padding, itemWidth, itemHeight, itemStyle, textStyle, lineStyle

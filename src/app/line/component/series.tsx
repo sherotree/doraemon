@@ -1,5 +1,5 @@
 import { useStore } from '../store';
-import { Switch, Select } from 'antd';
+import { Switch, Select, ColorPicker } from 'antd';
 
 const SymbolOptions = [
   // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
@@ -48,6 +48,31 @@ export default function GeneralConfig() {
           options={SymbolOptions}
           onChange={value => {
             setConfig({ series: [{ ...config.series[0], symbol: value }] });
+          }}
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <div>Enable Area</div>
+        <Switch
+          className="w-[40px]"
+          checked={config.series[0].areaStyle}
+          onChange={value => {
+            setConfig({ series: [{ ...config.series[0], areaStyle: value ? {} : undefined }] });
+          }}
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <div>Area Color</div>
+        <ColorPicker
+          showText
+          style={{ width: 108 }}
+          value={config.series[0].areaStyle?.color}
+          onChange={(_, color) => {
+            setConfig({
+              series: [{ ...config.series[0], areaStyle: { ...config.series[0].areaStyle, color } }],
+            });
           }}
         />
       </div>
