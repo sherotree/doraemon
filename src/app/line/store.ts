@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { uniqueId } from 'lodash';
 
 const color = '#186FE6';
 
@@ -35,7 +36,6 @@ export const useStore = create<State>(set => ({
     },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       show: true,
       name: '',
     },
@@ -46,7 +46,6 @@ export const useStore = create<State>(set => ({
     },
     series: [
       {
-        data: [120, 200, 150, 80, 70, 110, 130],
         type: 'line',
         name: 'Line',
         showSymbol: true,
@@ -77,4 +76,82 @@ export const useStore = create<State>(set => ({
     },
   },
   setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
+}));
+
+const columns = [
+  { id: 'id', label: '' },
+  { id: 'Mon', label: 'Mon' },
+  { id: 'Tue', label: 'Tue' },
+  { id: 'Wed', label: 'Wed' },
+  { id: 'Thu', label: 'Thu' },
+  { id: 'Fri', label: 'Fri' },
+  { id: 'Sat', label: 'Sat' },
+  { id: 'Sun', label: 'Sun' },
+];
+
+const data = [
+  {
+    id: 'Sample 1',
+    Mon: 120,
+    Tue: 200,
+    Wed: 34,
+    Thu: 22,
+    Fri: 34,
+    Sat: 22,
+    Sun: 22,
+  },
+];
+
+interface IProps {
+  data: any[];
+  setData: (data: any[]) => void;
+  addRow: () => void;
+  columns: any[];
+  updateCellData: (rowIndex: number, columnIndex: number, value: string) => void;
+  updateColumnLabelById: (id: string, label: string) => void;
+  addColumn: () => void;
+  setColumns: (columns: any[]) => void;
+}
+
+export const useGlobalStore = create<IProps>((set, get) => ({
+  data,
+  setData: data => set({ data }),
+  addRow: () => {
+    const data = get().data;
+    const columns = get().columns;
+    const row = {};
+    columns.forEach((column: any, index: number) => {
+      // @ts-ignore
+      row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(Math.random() * 100);
+    });
+
+    set({ data: [...data, row] });
+  },
+  updateCellData: (rowIndex, columnIndex, value) => {
+    const data = get().data;
+    data[rowIndex][columnIndex] = value;
+    set({ data });
+  },
+  columns,
+  updateColumnLabelById: (id, label) => {
+    const columns = get().columns;
+    const index = columns.findIndex(item => item.id === id);
+    columns[index].label = label;
+    set({ columns });
+  },
+  addColumn: () => {
+    const columns = get().columns;
+    const data = get().data;
+    const id = uniqueId();
+    const label = `Column ${columns.length + 1}`;
+    const column = { id, label };
+    columns.push(column);
+
+    data.forEach(item => {
+      item[id] = null;
+    });
+
+    set({ columns, data });
+  },
+  setColumns: columns => set({ columns }),
 }));
