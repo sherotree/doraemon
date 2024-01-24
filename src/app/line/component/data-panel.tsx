@@ -16,7 +16,7 @@ export default function DataPanel() {
   const [count, setCount] = useState(10);
   const [trend, setTrend] = useState<string>('up');
 
-  console.log(columns, 'columns', data);
+  // console.log(columns, 'columns', data);
 
   return (
     <div>
