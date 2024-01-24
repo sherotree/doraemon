@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import SeriesConfig from './series-config';
 
-export const TableCell = ({ getValue, row, column, table }: any) => {
+export const TableCell = (props: any) => {
+  const { getValue, row, column, table, cell } = props;
+
   const { index } = row;
   const { id } = column;
   const initialValue = getValue();
@@ -19,6 +22,18 @@ export const TableCell = ({ getValue, row, column, table }: any) => {
   }, [initialValue]);
 
   return (
-    <input value={value as string} onChange={e => setValue(e.target.value)} onBlur={onBlur} style={{ width: '100%' }} />
+    <>
+      {column.id === 'rowKey' && (
+        <span>
+          <SeriesConfig original={row.original} rowId={row.id} />
+        </span>
+      )}
+      <input
+        value={value as string}
+        onChange={e => setValue(e.target.value)}
+        onBlur={onBlur}
+        style={{ width: '100%' }}
+      />
+    </>
   );
 };

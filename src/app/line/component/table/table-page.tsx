@@ -15,7 +15,7 @@ const defaultColumn: Partial<ColumnDef<any>> = {
   enableResizing: true,
 };
 
-export default function App() {
+export default function Table() {
   const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn } = useGlobalStore();
 
   const formattedColumns = columns.map((column: any) => {

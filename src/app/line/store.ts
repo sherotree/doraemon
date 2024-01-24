@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { uniqueId } from 'lodash';
+import { DEFAULT_SERIES_CONFIG } from './constants';
 
 const color = '#186FE6';
 
@@ -14,10 +15,6 @@ export const useStore = create<State>(set => ({
     color,
     grid: {
       show: true,
-      // top: 60,
-      // right: 60,
-      // bottom: 60,
-      // left: 60,
       backgroundColor: '#100C2A',
       borderColor: '#ccc',
       borderWidth: 1,
@@ -44,27 +41,7 @@ export const useStore = create<State>(set => ({
       show: true,
       name: '',
     },
-    series: [
-      {
-        type: 'line',
-        name: 'Line',
-        showSymbol: true,
-        symbol: 'circle',
-        symbolSize: 6,
-        smooth: true,
-        // lineStyle: {
-        //   color,
-        //   width: 2,
-        //   type: 'solid',
-        // },
-        // itemStyle: {
-        //   color,
-        //   borderColor: '#fff',
-        //   borderWidth: 2,
-        // },
-        areaStyle: undefined,
-      },
-    ],
+
     // TODO: legend, left/top/right/bottom, padding, itemWidth, itemHeight, itemStyle, textStyle, lineStyle
     // data 可以单独设置每个图例的样式
     legend: {
@@ -79,7 +56,7 @@ export const useStore = create<State>(set => ({
 }));
 
 const columns = [
-  { id: 'id', label: '' },
+  { id: 'rowKey', label: '' },
   { id: 'Mon', label: 'Mon' },
   { id: 'Tue', label: 'Tue' },
   { id: 'Wed', label: 'Wed' },
@@ -91,7 +68,8 @@ const columns = [
 
 const data = [
   {
-    id: 'Sample 1',
+    rowKey: 'Sample 1',
+    seriesConfig: { ...DEFAULT_SERIES_CONFIG },
     Mon: 120,
     Tue: 200,
     Wed: 34,
@@ -107,7 +85,7 @@ interface IProps {
   setData: (data: any[]) => void;
   addRow: () => void;
   columns: any[];
-  updateCellData: (rowIndex: number, columnIndex: number, value: string) => void;
+  updateCellData: (rowId: string, columnId: string, value: any) => void;
   updateColumnLabelById: (id: string, label: string) => void;
   addColumn: () => void;
   setColumns: (columns: any[]) => void;
@@ -121,15 +99,16 @@ export const useGlobalStore = create<IProps>((set, get) => ({
     const columns = get().columns;
     const row = {};
     columns.forEach((column: any, index: number) => {
-      // @ts-ignore
       row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(Math.random() * 100);
     });
 
+    Object.assign(row, { seriesConfig: { ...DEFAULT_SERIES_CONFIG } });
+
     set({ data: [...data, row] });
   },
-  updateCellData: (rowIndex, columnIndex, value) => {
+  updateCellData: (rowId, columnId, value) => {
     const data = get().data;
-    data[rowIndex][columnIndex] = value;
+    data[rowId][columnId] = value;
     set({ data });
   },
   columns,
@@ -148,7 +127,7 @@ export const useGlobalStore = create<IProps>((set, get) => ({
     columns.push(column);
 
     data.forEach(item => {
-      item[id] = undefined;
+      item[id] = null;
     });
 
     set({ columns, data });

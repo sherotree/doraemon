@@ -12,6 +12,7 @@ export function Chart(props: any) {
     <div>
       <ReactECharts
         style={{ width: '100%', height: 420 }}
+        notMerge
         option={option}
         theme={config.theme}
         opts={{ renderer: 'svg' }}

@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Table from './table/table-page';
+import PresetCharts from './preset-charts';
 import { uniqueId } from 'lodash';
+import { DEFAULT_SERIES_CONFIG } from '../constants';
 
 const dataModeOptions = ['preset', 'random', 'customize'];
 
@@ -14,9 +16,10 @@ export default function DataPanel() {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(100);
   const [count, setCount] = useState(10);
+  const [seriesCount, setSeriesCount] = useState(1);
   const [trend, setTrend] = useState<string>('up');
 
-  // console.log(columns, 'columns', data);
+  console.log(columns, 'columns', data);
 
   return (
     <div>
@@ -31,6 +34,7 @@ export default function DataPanel() {
           )}
         </div>
       )}
+      {dataMode === 'preset' && <PresetCharts />}
       {dataMode === 'random' && (
         <div className="flex flex-col gap-2">
           <div>
@@ -42,8 +46,12 @@ export default function DataPanel() {
             <InputNumber value={max} onChange={value => setMax(value!)} />
           </div>
           <div>
-            <div>Count</div>
+            <div>Data Count</div>
             <InputNumber value={count} onChange={value => setCount(value!)} />
+          </div>
+          <div>
+            <div>Series Count</div>
+            <InputNumber value={seriesCount} onChange={value => setSeriesCount(value!)} />
           </div>
           <div>
             <div>Trend</div>
@@ -54,12 +62,11 @@ export default function DataPanel() {
               }}
             />
           </div>
-
           <Button
             type="primary"
             className="w-[120px]"
             onClick={() => {
-              const { columns, data } = generateRandomTableData(min, max, count, trend);
+              const { columns, data } = generateRandomTableData({ min, max, count, trend, seriesCount });
 
               setData(data);
               setColumns(columns);
@@ -73,22 +80,30 @@ export default function DataPanel() {
   );
 }
 
-function generateRandomTableData(min: number, max: number, count: number, trend: string) {
-  const data = [];
-  const columns = [{ id: 'id', label: '' }];
+function generateRandomTableData(params) {
+  const { min, max, count, trend, seriesCount } = params;
+  const data: any = [];
+  const columns = [{ id: 'rowKey', label: '' }];
   for (let i = 0; i < count; i++) {
     columns.push({
       id: 'col_' + uniqueId(),
       label: `Col ${i + 1}`,
     });
   }
-  for (let i = 0; i < 1; i++) {
-    const row = { id: `Sample ${uniqueId()}` };
+  for (let i = 0; i < seriesCount; i++) {
+    const row = { seriesConfig: { ...DEFAULT_SERIES_CONFIG } };
 
-    for (let j = 0; j < count + 1; j++) {
-      // @ts-ignore
-      row[columns[j].id] = j === 0 ? `Sample ${uniqueId()}` : Math.ceil(Math.random() * (max - min) + min);
+    const randomArray = Array.from({ length: count }, () => Math.ceil(Math.random() * (max - min) + min));
+    if (trend === 'up') {
+      randomArray.sort((a, b) => a - b);
+    } else if (trend === 'down') {
+      randomArray.sort((a, b) => b - a);
     }
+
+    for (let j = 0; j < columns.length; j++) {
+      row[columns[j].id] = j === 0 ? `Sample ${uniqueId()}` : randomArray[j - 1];
+    }
+
     data.push(row);
   }
 

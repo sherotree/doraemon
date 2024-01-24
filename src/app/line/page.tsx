@@ -1,21 +1,21 @@
 'use client';
 
-import { ConfigProvider, Switch, Input, ColorPicker, Select, Segmented } from 'antd';
+import { ConfigProvider, Segmented } from 'antd';
 import { Chart } from './chart';
 import { useStore, useGlobalStore } from './store';
+import { omit } from 'lodash';
 import { useTheme } from 'fig-components';
 import { useState } from 'react';
 import GeneralConfig from './component/general';
 import AxisConfig from './component/axis';
-import SeriesConfig from './component/series';
 import LegendConfig from './component/legend';
 import GridConfig from './component/grid';
 import DataPanel from './component/data-panel';
 
-const typeOptions = ['General', 'Axis', 'Series', 'Legend', 'Grid'];
+const typeOptions = ['General', 'Axis', 'Legend', 'Grid'];
 
 export default function LinePage() {
-  const { config, setConfig } = useStore();
+  const { config } = useStore();
   const { columns, data } = useGlobalStore();
   const [configType, setConfigType] = useState<string | number>(typeOptions[0]);
   const theme = useTheme();
@@ -27,12 +27,12 @@ export default function LinePage() {
     title: config.title,
     xAxis: { ...config.xAxis, data: columnsOmitFirst.map((x: any) => x.label) },
     yAxis: config.yAxis,
-    series: data.map((x: any) => {
-      const dataOmitFirst = Object.values(x).slice(1);
-      return { ...config.series[0], data: dataOmitFirst };
-    }),
-    // series: config.series.map((x: any, index: number) => ({ ...x, data: Object.values(data?.[index]).slice(1) })),
     grid: config.grid,
+    series: data.map((_data: any) => {
+      const omitData = omit(_data, 'rowKey', 'seriesConfig');
+      const seriesConfig = _data.seriesConfig;
+      return { ...seriesConfig, data: Object.values(omitData) };
+    }),
   };
 
   return (
@@ -51,7 +51,7 @@ export default function LinePage() {
             {/* Axis */}
             {configType === 'Axis' && <AxisConfig />}
             {/* Series */}
-            {configType === 'Series' && <SeriesConfig />}
+            {/* {configType === 'Series' && <SeriesConfig />} */}
             {/* Legend */}
             {configType === 'Legend' && <LegendConfig />}
             {/* Grid */}
