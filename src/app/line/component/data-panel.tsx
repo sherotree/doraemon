@@ -1,14 +1,15 @@
-import { Button, Segmented, InputNumber } from 'antd';
+import { Button, Segmented, InputNumber, Switch } from 'antd';
 import { useGlobalStore } from '../store';
 import { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Table from './table/table-page';
 import PresetCharts from './preset-charts';
-import { uniqueId } from 'lodash';
+import { set, uniqueId } from 'lodash';
+import { useSetState } from 'fig-components';
 import { DEFAULT_SERIES_CONFIG } from '../constants';
 
-const dataModeOptions = ['preset', 'random', 'customize'];
+const dataModeOptions = ['preset', 'random'];
 
 export default function DataPanel() {
   const { setData, setColumns, columns, data } = useGlobalStore();
@@ -18,8 +19,12 @@ export default function DataPanel() {
   const [count, setCount] = useState(10);
   const [seriesCount, setSeriesCount] = useState(1);
   const [trend, setTrend] = useState<string>('up');
-
-  console.log(columns, 'columns', data);
+  const [seriesConfig, setSeriesConfig] = useSetState<any>({
+    showSymbol: false,
+    smooth: false,
+    areaStyle: undefined,
+    symbolSize: 6,
+  });
 
   return (
     <div>
@@ -62,11 +67,52 @@ export default function DataPanel() {
               }}
             />
           </div>
+          <div>
+            <div>Show Symbol</div>
+            <Switch
+              className="w-[40px]"
+              checked={seriesConfig.showSymbol}
+              onChange={value => {
+                setSeriesConfig({ showSymbol: value });
+              }}
+            />
+          </div>
+          <div>
+            <div>smooth</div>
+            <Switch
+              className="w-[40px]"
+              checked={seriesConfig.smooth}
+              onChange={value => {
+                setSeriesConfig({ smooth: value });
+              }}
+            />
+          </div>
+          <div>
+            <div>areaStyle</div>
+            <Switch
+              className="w-[40px]"
+              checked={!!seriesConfig.areaStyle}
+              onChange={value => {
+                setSeriesConfig({ areaStyle: value ? {} : undefined });
+              }}
+            />
+          </div>
+          <div>
+            <div>symbolSize</div>
+            <InputNumber value={seriesConfig.symbolSize} onChange={value => setSeriesConfig({ symbolSize: value })} />
+          </div>
           <Button
             type="primary"
             className="w-[120px]"
             onClick={() => {
-              const { columns, data } = generateRandomTableData({ min, max, count, trend, seriesCount });
+              const { columns, data } = generateRandomTableData({
+                min,
+                max,
+                count,
+                trend,
+                seriesCount,
+                ...seriesConfig,
+              });
 
               setData(data);
               setColumns(columns);
@@ -81,7 +127,7 @@ export default function DataPanel() {
 }
 
 function generateRandomTableData(params) {
-  const { min, max, count, trend, seriesCount } = params;
+  const { min, max, count, trend, seriesCount, showSymbol, smooth, areaStyle, symbolSize } = params;
   const data: any = [];
   const columns = [{ id: 'rowKey', label: '' }];
   for (let i = 0; i < count; i++) {
@@ -91,7 +137,7 @@ function generateRandomTableData(params) {
     });
   }
   for (let i = 0; i < seriesCount; i++) {
-    const row = { seriesConfig: { ...DEFAULT_SERIES_CONFIG } };
+    const row = { seriesConfig: { ...DEFAULT_SERIES_CONFIG, showSymbol, smooth, areaStyle, symbolSize } };
 
     const randomArray = Array.from({ length: count }, () => Math.ceil(Math.random() * (max - min) + min));
     if (trend === 'up') {

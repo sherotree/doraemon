@@ -1,29 +1,29 @@
-import { useStore } from '../store';
-import { Switch, Input, Select, ColorPicker } from 'antd';
+import { useGlobalStore } from '../store';
+import { Switch } from 'antd';
 
 export default function AxisConfig() {
-  const { config, setConfig } = useStore();
+  const { commonConfig, setCommonConfig } = useGlobalStore();
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-1">
         <div>Enabled xAxis</div>
         <Switch
           className="w-[40px]"
-          checked={config.xAxis.show}
+          checked={commonConfig.xAxis.show}
           onChange={value => {
-            setConfig({ xAxis: { ...config.xAxis, show: value } });
+            setCommonConfig({ xAxis: { ...commonConfig.xAxis, show: value } });
           }}
         />
       </div>
 
       <div className="flex flex-col gap-1">
-        <div>xAxis Name</div>
-        <Input
+        <div>Enabled xAxis boundaryGap</div>
+        <Switch
           className="w-[40px]"
-          allowClear
-          onChange={e => {
-            setConfig({ xAxis: { ...config.xAxis, name: e.target.value } });
+          checked={commonConfig.xAxis.boundaryGap}
+          onChange={value => {
+            setCommonConfig({ xAxis: { ...commonConfig.xAxis, boundaryGap: value } });
           }}
         />
       </div>
@@ -32,20 +32,9 @@ export default function AxisConfig() {
         <div>Enabled yAxis</div>
         <Switch
           className="w-[40px]"
-          checked={config.yAxis.show}
+          checked={commonConfig.yAxis.show}
           onChange={value => {
-            setConfig({ yAxis: { ...config.yAxis, show: value } });
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <div>yAxis Name</div>
-        <Input
-          className="w-[40px]"
-          allowClear
-          onChange={e => {
-            setConfig({ yAxis: { ...config.yAxis, name: e.target.value } });
+            setCommonConfig({ yAxis: { ...commonConfig.yAxis, show: value } });
           }}
         />
       </div>

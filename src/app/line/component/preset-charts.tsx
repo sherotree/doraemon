@@ -1,26 +1,23 @@
-import { SAMPLES, DEFAULT_SERIES_CONFIG } from '../constants';
+import { SAMPLES, IMMUTABLE_CONFIG, SMALL_CHART_IMMUTABLE_CONFIG } from '../constants';
 import ReactECharts from 'echarts-for-react';
-import { useStore, useGlobalStore } from '../store';
-import { uniqueId, omit } from 'lodash';
+import { useGlobalStore } from '../store';
+import { genColumnAndDataFromOption } from '../utils';
 
 export default function PresetCharts() {
-  const { config, setConfig } = useStore();
-  const { setColumns, setData, data } = useGlobalStore();
+  const { setColumns, setData, setConfig } = useGlobalStore();
 
   return (
     <div className="flex gap-2 flex-wrap">
       {SAMPLES.map((sample, index) => {
-        const title = { ...config.title, ...sample.title };
-        const legend = { ...config.legend, ...sample.legend };
-        const grid = { ...config.grid, ...sample.grid };
+        const title = { ...IMMUTABLE_CONFIG.title, ...SMALL_CHART_IMMUTABLE_CONFIG.title, ...sample.title };
+        const grid = { ...IMMUTABLE_CONFIG.grid, ...sample.grid };
         const yAxis = sample.yAxis;
         const xAxis = sample.xAxis;
         const series = sample.series;
 
         const option = {
-          color: [config.color],
+          color: IMMUTABLE_CONFIG.color,
           grid,
-          legend,
           title,
           yAxis,
           xAxis,
@@ -31,31 +28,17 @@ export default function PresetCharts() {
           <div
             key={index}
             onClick={() => {
-              const columns = sample.xAxis[0].data.reduce((acc: any, cur) => {
-                acc.push({ id: cur, label: cur });
-                return acc;
-              }, []);
-              columns.unshift({ id: 'rowKey', label: '' });
+              const { columns, data } = genColumnAndDataFromOption(sample);
 
-              const data: any = [];
-              for (let i = 0; i < series.length; i++) {
-                const row = { seriesConfig: { ...DEFAULT_SERIES_CONFIG, ...omit(sample.series[i], ['data']) } };
-
-                for (let j = 0; j < columns.length; j++) {
-                  row[columns[j].id] = j === 0 ? `Sample ${uniqueId()}` : sample.series[i].data[j - 1];
-                }
-                data.push(row);
-              }
-
-              setConfig({ title, yAxis });
+              setConfig({ title, yAxis, xAxis });
               setColumns(columns);
               setData(data);
             }}
           >
             <ReactECharts
-              style={{ width: 400, height: 200 }}
+              style={{ width: 300, height: 180 }}
               option={option}
-              theme={config.theme}
+              // theme={commonConfig.theme}
               opts={{ renderer: 'svg' }}
             />
           </div>

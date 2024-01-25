@@ -1,4 +1,4 @@
-import { useStore } from '../store';
+import { useGlobalStore } from '../store';
 import { Switch, Input, ColorPicker, InputNumber, Select } from 'antd';
 
 const titleStyleOptions = [
@@ -16,35 +16,19 @@ const titleStyleOptions = [
   },
 ];
 
-const titleAlignOptions = [
-  {
-    value: 'left',
-    label: 'left',
-  },
-  {
-    value: 'center',
-    label: 'center',
-  },
-  {
-    value: 'right',
-    label: 'right',
-  },
-];
-
 export default function GeneralConfig() {
-  const { config, setConfig } = useStore();
+  const { commonConfig, setCommonConfig, config, setConfig } = useGlobalStore();
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-1">
         <div>Dark Mode</div>
         <Switch
           className="w-[40px]"
-          checked={config.theme === 'dark'}
+          checked={commonConfig.theme === 'dark'}
           onChange={value => {
-            setConfig({
+            setCommonConfig({
               theme: value ? 'dark' : 'light',
-              grid: { ...config.grid, backgroundColor: value ? '#100C2A' : '#fff' },
             });
           }}
         />
@@ -62,19 +46,20 @@ export default function GeneralConfig() {
         />
       </div>
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Title</div>
         <Input
           className="w-[40px]"
           allowClear
           placeholder="Line Charts"
+          value={config.title.text}
           onChange={e => {
             setConfig({ title: { ...config.title, text: e.target.value } });
           }}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Title Color</div>
         <ColorPicker
           showText
@@ -84,8 +69,8 @@ export default function GeneralConfig() {
             setConfig({ title: { ...config.title, textStyle: { ...config.title.textStyle, color } } });
           }}
         />
-      </div>
-
+      </div> */}
+      {/* 
       <div className="flex flex-col gap-1">
         <div>Title Size</div>
         <InputNumber
@@ -96,9 +81,9 @@ export default function GeneralConfig() {
             setConfig({ title: { ...config.title, textStyle: { ...config.title.textStyle, fontSize: value } } });
           }}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Title Style</div>
         <Select
           defaultValue="normal"
@@ -107,22 +92,22 @@ export default function GeneralConfig() {
             setConfig({ title: { ...config.title, textStyle: { ...config.title.textStyle, fontStyle: value } } });
           }}
         />
-      </div>
+      </div> */}
       {/* left/top/right/bottom */}
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Title Padding</div>
         <InputNumber
           value={config.title.padding}
-          // min={12}
-          // max={64}
+          min={0}
+          max={64}
           onChange={value => {
             setConfig({ title: { ...config.title, padding: value } });
           }}
         />
-      </div>
+      </div> */}
 
       {/* Line Color */}
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Line Color</div>
         <ColorPicker
           showText
@@ -132,7 +117,7 @@ export default function GeneralConfig() {
             setConfig({ color });
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

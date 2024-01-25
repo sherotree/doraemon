@@ -1,84 +1,9 @@
 import { create } from 'zustand';
 import { uniqueId } from 'lodash';
-import { DEFAULT_SERIES_CONFIG } from './constants';
+import { DEFAULT_SERIES_CONFIG, SAMPLES } from './constants';
+import { genColumnAndDataFromOption } from './utils';
 
-const color = '#186FE6';
-
-type State = {
-  config: any;
-  setConfig: (config: any) => void;
-};
-
-export const useStore = create<State>(set => ({
-  config: {
-    theme: 'dark',
-    color,
-    grid: {
-      show: true,
-      backgroundColor: '#100C2A',
-      borderColor: '#ccc',
-      borderWidth: 1,
-    },
-    // TODO: title, padding(副标题), top, right, bottom, left(容器)
-    title: {
-      text: 'Line Charts',
-      show: true,
-      textStyle: {
-        color: '#fff',
-        fontSize: 16,
-        fontStyle: 'normal',
-        fontWeight: 'bold', // 'normal', 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
-      },
-      padding: 5,
-    },
-    xAxis: {
-      type: 'category',
-      show: true,
-      name: '',
-    },
-    yAxis: {
-      type: 'value',
-      show: true,
-      name: '',
-    },
-
-    // TODO: legend, left/top/right/bottom, padding, itemWidth, itemHeight, itemStyle, textStyle, lineStyle
-    // data 可以单独设置每个图例的样式
-    legend: {
-      show: true,
-      orient: 'horizontal', // 'horizontal', 'vertical'
-      padding: 5,
-      align: 'auto', // 'auto', 'left', 'right',
-      itemGap: 10, // the distance between each item
-    },
-  },
-  setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
-}));
-
-const columns = [
-  { id: 'rowKey', label: '' },
-  { id: 'Mon', label: 'Mon' },
-  { id: 'Tue', label: 'Tue' },
-  { id: 'Wed', label: 'Wed' },
-  { id: 'Thu', label: 'Thu' },
-  { id: 'Fri', label: 'Fri' },
-  { id: 'Sat', label: 'Sat' },
-  { id: 'Sun', label: 'Sun' },
-];
-
-const data = [
-  {
-    rowKey: 'Sample 1',
-    seriesConfig: { ...DEFAULT_SERIES_CONFIG },
-    Mon: 120,
-    Tue: 200,
-    Wed: 34,
-    Thu: 22,
-    Fri: 34,
-    Sat: 22,
-    Sun: 22,
-  },
-];
+const { columns, data } = genColumnAndDataFromOption(SAMPLES[0]);
 
 interface IProps {
   data: any[];
@@ -89,6 +14,10 @@ interface IProps {
   updateColumnLabelById: (id: string, label: string) => void;
   addColumn: () => void;
   setColumns: (columns: any[]) => void;
+  commonConfig: any;
+  setCommonConfig: (config: any) => void;
+  config: any;
+  setConfig: (config: any) => void;
 }
 
 export const useGlobalStore = create<IProps>((set, get) => ({
@@ -133,4 +62,19 @@ export const useGlobalStore = create<IProps>((set, get) => ({
     set({ columns, data });
   },
   setColumns: columns => set({ columns }),
+  commonConfig: {
+    theme: 'light',
+    grid: { show: true },
+    legend: { show: true },
+    xAxis: { show: true, boundaryGap: true },
+    yAxis: { show: true, boundaryGap: true },
+    title: { show: true },
+  },
+  setCommonConfig: commonConfig => set(state => ({ commonConfig: { ...state.commonConfig, ...commonConfig } })),
+  config: {
+    title: SAMPLES[0].title,
+    xAxis: SAMPLES[0].xAxis,
+    yAxis: SAMPLES[0].yAxis,
+  },
+  setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
 }));

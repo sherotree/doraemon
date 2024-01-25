@@ -1,55 +1,18 @@
-import { useStore } from '../store';
-import { Switch, InputNumber, ColorPicker } from 'antd';
+import { useGlobalStore } from '../store';
+import { Switch } from 'antd';
 
 export default function GridConfig() {
-  const { config, setConfig } = useStore();
+  const { commonConfig, setCommonConfig } = useGlobalStore();
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-1">
         <div>Enabled Grid</div>
         <Switch
           className="w-[40px]"
-          checked={config.grid.show}
+          checked={commonConfig.grid.show}
           onChange={value => {
-            setConfig({ grid: { ...config.grid, show: value } });
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <div>Background Color</div>
-        <ColorPicker
-          showText
-          style={{ width: 108 }}
-          value={config.grid.backgroundColor}
-          onChange={(_, color) => {
-            setConfig({ grid: { ...config.grid, backgroundColor: color } });
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <div>Border Color</div>
-        <ColorPicker
-          showText
-          style={{ width: 108 }}
-          value={config.grid.borderColor}
-          onChange={(_, color) => {
-            setConfig({ grid: { ...config.grid, borderColor: color } });
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <div>Border Width</div>
-        <InputNumber
-          value={config.grid.borderWidth}
-          defaultValue={1}
-          // min={1}
-          // max={64}
-          onChange={value => {
-            setConfig({ grid: { ...config.grid, borderWidth: value } });
+            setCommonConfig({ grid: { ...commonConfig.grid, show: value } });
           }}
         />
       </div>

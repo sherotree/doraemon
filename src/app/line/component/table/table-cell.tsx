@@ -23,11 +23,11 @@ export const TableCell = (props: any) => {
 
   return (
     <>
-      {column.id === 'rowKey' && (
+      {/* {column.id === 'rowKey' && (
         <span>
           <SeriesConfig original={row.original} rowId={row.id} />
         </span>
-      )}
+      )} */}
       <input
         value={value as string}
         onChange={e => setValue(e.target.value)}

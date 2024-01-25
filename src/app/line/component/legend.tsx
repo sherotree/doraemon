@@ -1,20 +1,14 @@
 // 针对多条折线图，legend的配置
-import { useStore } from '../store';
-import { Switch, Select, Radio, InputNumber } from 'antd';
+import { useGlobalStore } from '../store';
+import { Switch, Radio } from 'antd';
 
 const orientOptions = [
   { value: 'horizontal', label: 'horizontal' },
   { value: 'vertical', label: 'vertical' },
 ];
 
-const alignOptions = [
-  { value: 'auto', label: 'auto' },
-  { value: 'left', label: 'left' },
-  { value: 'right', label: 'right' },
-];
-
 export default function LegendConfig() {
-  const { config, setConfig } = useStore();
+  const { commonConfig, setCommonConfig } = useGlobalStore();
 
   return (
     <div>
@@ -22,14 +16,14 @@ export default function LegendConfig() {
         <div>Enabled Legend</div>
         <Switch
           className="w-[40px]"
-          checked={config.legend.show}
+          checked={commonConfig.legend.show}
           onChange={value => {
-            setConfig({ legend: { ...config.legend, show: value } });
+            setCommonConfig({ legend: { ...commonConfig.legend, show: value } });
           }}
         />
       </div>
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Orient</div>
         <Radio.Group
           defaultValue={'horizontal'}
@@ -38,9 +32,9 @@ export default function LegendConfig() {
             setConfig({ legend: { ...config.legend, orient: value.target.value } });
           }}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Padding</div>
         <InputNumber
           value={config.legend.padding}
@@ -50,9 +44,9 @@ export default function LegendConfig() {
             setConfig({ legend: { ...config.legend, padding: value } });
           }}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Align</div>
         <Select
           className="w-[100px]"
@@ -62,9 +56,9 @@ export default function LegendConfig() {
             setConfig({ legend: [{ ...config.legend, align: value }] });
           }}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Item Gap</div>
         <InputNumber
           value={config.legend.itemGap}
@@ -74,7 +68,7 @@ export default function LegendConfig() {
             setConfig({ legend: { ...config.legend, itemGap: value } });
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

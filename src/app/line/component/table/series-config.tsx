@@ -86,7 +86,7 @@ function GeneralConfig(props: any) {
         />
       </div>
 
-      <div className="flex flex-col gap-1">
+      {/* <div className="flex flex-col gap-1">
         <div>Area Color</div>
         <ColorPicker
           showText
@@ -99,7 +99,7 @@ function GeneralConfig(props: any) {
             });
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
