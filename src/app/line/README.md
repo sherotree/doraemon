@@ -8,3 +8,4 @@
 - [ ] https://echarts.apache.org/examples/zh/editor.html?c=area-pieces visualMap https://echarts.apache.org/examples/zh/editor.html?c=line-gradient
 
 - [ ] https://echarts.apache.org/examples/zh/editor.html?c=grid-multiple 多轴
+- [ ] dataZoom

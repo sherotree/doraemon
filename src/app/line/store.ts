@@ -18,6 +18,8 @@ interface IProps {
   setCommonConfig: (config: any) => void;
   config: any;
   setConfig: (config: any) => void;
+  customTemplates: any[];
+  setCustomTemplates: (templates: any[]) => void;
 }
 
 export const useGlobalStore = create<IProps>((set, get) => ({
@@ -75,6 +77,11 @@ export const useGlobalStore = create<IProps>((set, get) => ({
     title: SAMPLES[0].title,
     xAxis: SAMPLES[0].xAxis,
     yAxis: SAMPLES[0].yAxis,
+    grid: SAMPLES[0].grid,
+    legend: SAMPLES[0].legend,
+    visualMap: SAMPLES[0].visualMap,
   },
   setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
+  customTemplates: [],
+  setCustomTemplates: customTemplates => set({ customTemplates }),
 }));

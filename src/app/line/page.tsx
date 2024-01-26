@@ -25,23 +25,39 @@ export default function LinePage() {
   const columnsOmitFirst = columns.slice(1);
 
   const configOption = {
+    // tooltip: {
+    //   trigger: 'none',
+    //   axisPointer: {
+    //     type: 'cross',
+    //   },
+    // },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross',
+        label: {
+          backgroundColor: '#6a7985',
+        },
+      },
+    },
     color: IMMUTABLE_CONFIG.color,
-    title: { ...IMMUTABLE_CONFIG.title, ...commonConfig.title, ...config.title },
+    title: config.title.map(t => ({ ...t, ...commonConfig.title })),
     xAxis: config.xAxis.map(x => ({
       ...x,
-      ...IMMUTABLE_CONFIG.xAxis,
       ...commonConfig.xAxis,
       data: columnsOmitFirst.map((x: any) => x.label),
     })),
-    yAxis: config.yAxis.map(y => ({ ...y, ...IMMUTABLE_CONFIG.yAxis, ...commonConfig.yAxis })),
-    grid: { ...IMMUTABLE_CONFIG.grid, ...commonConfig.grid },
-    legend: { ...IMMUTABLE_CONFIG.legend, ...commonConfig.legend },
+    yAxis: config.yAxis.map(y => ({ ...y, ...commonConfig.yAxis })),
+    grid: config.grid.map(g => ({ ...g, ...commonConfig.grid })),
+    legend: config.legend.map(l => ({ ...l, ...commonConfig.legend })),
+    visualMap: config.visualMap,
     series: data.map((_data: any) => {
       const omitData = omit(_data, 'rowKey', 'seriesConfig');
       const seriesConfig = _data.seriesConfig;
 
       return { ...seriesConfig, data: Object.values(omitData) };
     }),
+    // dataZoom: config.dataZoom,
   };
 
   return (

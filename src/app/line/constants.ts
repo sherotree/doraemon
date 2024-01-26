@@ -1,4 +1,8 @@
-export const IMMUTABLE_CONFIG = {
+import { RAINFALL_VS_EVAPORATION } from './grid-multiple';
+import { LARGE_AREA_CHART } from './area-simple';
+import { MULTIPLE_X_AXES } from './multiple-x-axis';
+
+export const IMMUTABLE_CONFIG: any = {
   grid: {
     containLabel: true,
     top: 40,
@@ -89,9 +93,9 @@ const generateSeriesList = () => {
 };
 
 const BUMP_CHART = {
-  title: { text: 'Bump Chart (Ranking)' },
-  legend: {},
-  grid: {},
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Bump Chart (Ranking)' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [
     {
       data: years,
@@ -101,43 +105,52 @@ const BUMP_CHART = {
       },
     },
   ],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: generateSeriesList(),
 };
 
 const BASIC_LINE_CHART = {
-  title: { text: 'Basic Line Chart' },
-  legend: {},
-  grid: {},
+  id: 'basic-line-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Basic Line Chart' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [{ data: [150, 230, 224, 218, 135, 147, 260], type: 'line' }],
 };
 
 const SMOOTHED_LINE_CHART = {
-  title: { text: 'Smoothed Line Chart' },
-  legend: {},
-  grid: {},
+  id: 'smoothed-line-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Smoothed Line Chart' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', smooth: true }],
 };
 
 const BASIC_AREA_CHART = {
-  title: { text: 'Basic area chart' },
-  legend: {},
-  grid: {},
+  id: 'basic-area-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Basic area chart' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', areaStyle: {} }],
 };
 
 const STACKED_LINE_CHART = {
-  title: { text: 'Stacked Line Chart' },
+  id: 'stacked-line-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Stacked Line Chart' }],
   xAxis: [{ type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }],
-  yAxis: [{}],
-  legend: {},
-  grid: {},
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   series: [
     {
       name: 'Email',
@@ -173,11 +186,13 @@ const STACKED_LINE_CHART = {
 };
 
 const STACKED_AREA_CHART = {
-  title: { text: 'Stacked Area Chart' },
-  legend: {},
-  grid: {},
+  id: 'stacked-area-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Stacked Area Chart' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [
     {
       name: 'Email',
@@ -218,11 +233,13 @@ const STACKED_AREA_CHART = {
 };
 
 const GRADIENT_STACKED_AREA_CHART = {
-  title: { text: 'Gradient Stacked Area Chart' },
-  legend: {},
-  grid: {},
+  id: 'gradient-stacked-area-chart',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Gradient Stacked Area Chart' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [
     {
       name: 'Line 1',
@@ -317,11 +334,13 @@ const GRADIENT_STACKED_AREA_CHART = {
 };
 
 const TEMPERATURE_CHANGE = {
-  title: { text: 'Temperature Change in the Coming Week' },
-  legend: {},
-  grid: {},
+  id: 'temperature-change',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Temperature Change in the Coming Week' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [
     {
       name: 'Highest',
@@ -370,9 +389,10 @@ const TEMPERATURE_CHANGE = {
 };
 
 const DISTRIBUTION_OF_ELECTRICITY = {
-  title: { text: 'Distribution of Electricity' },
-  legend: {},
-  grid: {},
+  id: 'distribution-of-electricity',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Distribution of Electricity' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
   xAxis: [
     {
       type: 'category',
@@ -400,7 +420,8 @@ const DISTRIBUTION_OF_ELECTRICITY = {
       ],
     },
   ],
-  yAxis: [{}],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
   series: [
     {
       name: 'Electricity',
@@ -436,7 +457,37 @@ const DISTRIBUTION_OF_ELECTRICITY = {
   ],
 };
 
-export const SAMPLES = [
+const STEP_LINE = {
+  id: 'step-line',
+  title: [{ ...IMMUTABLE_CONFIG.title, text: 'Step Line' }],
+  legend: [IMMUTABLE_CONFIG.legend],
+  grid: [IMMUTABLE_CONFIG.grid],
+  xAxis: [{ type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }],
+  yAxis: [IMMUTABLE_CONFIG.yAxis],
+  visualMap: [],
+  series: [
+    {
+      name: 'Step Start',
+      type: 'line',
+      step: 'start',
+      data: [120, 132, 101, 134, 90, 230, 210],
+    },
+    {
+      name: 'Step Middle',
+      type: 'line',
+      step: 'middle',
+      data: [220, 282, 201, 234, 290, 430, 410],
+    },
+    {
+      name: 'Step End',
+      type: 'line',
+      step: 'end',
+      data: [450, 432, 401, 454, 590, 530, 510],
+    },
+  ],
+};
+
+export const SAMPLES: any = [
   BASIC_LINE_CHART,
   SMOOTHED_LINE_CHART,
   BASIC_AREA_CHART,
@@ -446,9 +497,13 @@ export const SAMPLES = [
   BUMP_CHART,
   TEMPERATURE_CHANGE,
   DISTRIBUTION_OF_ELECTRICITY,
+  RAINFALL_VS_EVAPORATION,
+  LARGE_AREA_CHART,
+  MULTIPLE_X_AXES,
+  STEP_LINE,
 ];
 
-export const DEFAULT_SERIES_CONFIG = {
+export const DEFAULT_SERIES_CONFIG: any = {
   type: 'line',
   name: 'Line',
   symbol: 'circle',
