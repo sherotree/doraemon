@@ -1,0 +1,71 @@
+{
+  "name": "汪杨",
+  "title": "前端开发工程师",
+  "avatar": "https://terminus-paas.oss-cn-hangzhou.aliyuncs.com/paas-doc/2022/04/17/51d0bba6-ab2d-4757-9e10-83cee8f47b3e.png?x-oss-process=image/resize,w_300/format,webp",
+  "summary": "2 年前端开发经验，有良好的代码风格。常用技术栈为 React、Typescript、Ant Design、Tailwind CSS 等。认真负责，有较强的自学能力，终身学习主义者，追求长期进步。期望在未来的工作中，能够与优秀的团队一起成长。",
+  "meta": {
+    "address": "杭州",
+    "phone": "18307579778",
+    "email": "wytreeshero@163.com",
+    "github": "https://github.com/sherotree",
+    "website": "https://sherotree.vercel.app"
+  },
+  "certificates": [
+    {
+      "name": "英语 6 级"
+    },
+    {
+      "name": "重庆邮电大学优秀毕业生"
+    }
+  ],
+  "interests": ["综艺", "看书", "散步"],
+  "companies": [
+    {
+      "start": "2020/09",
+      "end": "Now",
+      "title": "前端开发工程师",
+      "address": "杭州",
+      "name": "端点科技网络有限公司",
+      "content": "*参与一站式云原生应用研发平台 Erda 的前端开发\n*参与 Erda 官网的开发\n*负责图表配置器的维护与开发\n*参与美孚项目的开发"
+    },
+    {
+      "start": "2016/07",
+      "end": "2019/03",
+      "title": "工程项目初级管理",
+      "address": "佛山",
+      "name": "中国移动通信集团广东有限公司",
+      "content": "*负责基站站点规划、审计结算、应急通信管理和管理网格基站故障及投诉处理\n*在佛山移动24个网格网络质量竞赛中，所管理网格多次获得第一"
+    }
+  ],
+  "projects": [
+    {
+      "start": "2020/09",
+      "end": "Now",
+      "name": "[Erda UI](https://github.com/erda-project/erda-ui)",
+      "content": "简介：[Erda](https://docs.erda.cloud/2.0/manual/about/intro.html) 是新一代数字化云原生 PaaS 平台，其核心包含三大模块：应用（微服务）研发治理平台、快数据治理平台和混合云管理平台。\n职责：参与微服务平台日常的功能开发与维护，包括自定义大盘、管理中心、诊断分析、项目协同等功能模块\n技术栈：React, Typescript, Ant Design, Tailwind CSS"
+    },
+    {
+      "start": "2021/05",
+      "end": "Now",
+      "name": "[图表配置器](https://github.com/Erda-FE/dashboard-configuration)",
+      "content": "简介：基于 ECharts 深度封装，可自由配置数据，定制个性化图表，打造面向后端等非前端开发人员开箱即用的图表配置器。\n职责：负责日常的功能开发与维护\n技术栈：React, Typescript, Ant Design, ECharts"
+    },
+    {
+      "start": "2021/02",
+      "end": "2021/06",
+      "name": "[Erda官网](https://www.erda.cloud/)",
+      "content": "简介：Erda 门户网站。\n职责：参与了日常的功能开发与维护，包括官网首页等\n技术栈：React, Ant Design"
+    }
+  ],
+  "educations": [
+    {
+      "start": "2012/09",
+      "end": "2016/07",
+      "name": "重庆邮电大学",
+      "profession": "通信工程",
+      "degree": "本科",
+      "is211": false,
+      "is985": false
+    }
+  ]
+}
