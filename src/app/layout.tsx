@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import 'fig-css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <AntdRegistry>{children}</AntdRegistry>
       </body>
+      <GoogleAnalytics gaId="G-7SHR06DB9Q" />
     </html>
   );
 }

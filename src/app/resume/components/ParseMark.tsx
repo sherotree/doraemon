@@ -9,7 +9,7 @@ const ParseMark = (str: string) => {
   }
   const contentList: any[] = [];
   let after = copyStr;
-  (matchList || []).forEach(m => {
+  (matchList || []).forEach((m: any) => {
     // eg: [text](url) or [text]
     const [text, url] = m.includes('(') ? m.slice(1, -1).split('](') : [m.slice(1, -1)];
     const [before] = after.split(m);
