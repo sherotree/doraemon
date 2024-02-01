@@ -88,6 +88,11 @@
   resolved "https://registry.npmmirror.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
+"@excalidraw/excalidraw@0.17.2":
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/@excalidraw/excalidraw/-/excalidraw-0.17.2.tgz#9a636a1e6bb3c88c5883347d3a7e75e9cce8ab96"
+  integrity sha512-7pqUWD8+mPjDhF4XxG3gw4rvE2JGaLW3Vss5UZfTbITPxAtFaGEc1K081bncitnaYhUwN9ENJE0i87QB3poDwQ==
+
 "@figma/plugin-typings@^1.83.0":
   version "1.83.0"
   resolved "https://registry.npmmirror.com/@figma/plugin-typings/-/plugin-typings-1.83.0.tgz#f755e43a59527c7fd02e6939ac1efffe1c8b1703"
