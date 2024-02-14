@@ -15,7 +15,10 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IMMUTABLE_CONFIG } from './constants';
 import Table from './component/table/table-page';
-const typeOptions = ['General', 'Axis', 'Legend', 'Grid'];
+import { Panel, PanelGroup } from 'react-resizable-panels';
+
+import ResizeHandle from './resize-handle';
+import styles from './styles.module.css';
 
 export default function LinePage() {
   const { columns, data, commonConfig, config } = useGlobalStore();
@@ -62,26 +65,25 @@ export default function LinePage() {
 
   return (
     <ConfigProvider theme={theme}>
-      <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)]">
-        <div className="flex-1 flex flex-col gap-2">
-          <Chart option={configOption} />
-          <DataPanel />
+      <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)] h-full">
+        <div className="flex-1 flex flex-col gap-2 h-full">
+          <PanelGroup autoSaveId="example" direction="vertical">
+            <Panel className={styles.Panel} collapsible={true} defaultSize={20} order={1}>
+              <DataPanel />
+            </Panel>
+            <ResizeHandle />
+            <Panel className={styles.Panel} collapsible={true} order={2}>
+              <Chart option={configOption} />
+            </Panel>
+          </PanelGroup>
         </div>
 
-        <div className="gap-3 w-[210px] flex-shrink-0">
-          {/* <Segmented options={typeOptions} size="small" onChange={setConfigType} /> */}
+        <div className="gap-3 w-[240px] flex-shrink-0">
           <div className="flex flex-col gap-3 w-[210px] flex-shrink-0 items-start">
-            {/* General */}
             <GeneralConfig />
-            {/* Axis */}
             <AxisConfig />
-            {/* Series */}
-            {/* {configType === 'Series' && <SeriesConfig />} */}
-            {/* Legend */}
             <LegendConfig />
-            {/* Grid */}
             <GridConfig />
-            {/* Label */}
 
             <Button type="primary" onClick={() => setOpen(true)}>
               Edit Data

@@ -9,7 +9,7 @@ export default function PresetCharts() {
 
   return (
     <div className="flex gap-2 flex-wrap">
-      <AddChart />
+      {/* <AddChart /> */}
       {[...customTemplates, ...SAMPLES].map((sample: any, index) => {
         const title = sample.title.map(t => ({
           ...t,
@@ -40,14 +40,13 @@ export default function PresetCharts() {
             key={index}
             onClick={() => {
               const { columns, data } = genColumnAndDataFromOption(sample);
-              console.log('columns', option);
               setConfig(sample);
               setColumns(columns);
               setData(data);
             }}
           >
             <ReactECharts
-              style={{ width: 200, height: 120 }}
+              style={{ width: 160 * 1.1, height: 96 * 1.1 }}
               option={option}
               // theme={commonConfig.theme}
               opts={{ renderer: 'svg' }}

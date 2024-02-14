@@ -34,6 +34,7 @@
     "react-dnd-html5-backend": "16.0.1",
     "react-dom": "^18",
     "react-i18next": "^14.0.0",
+    "react-resizable-panels": "2.0.8",
     "recharts": "^2.10.4",
     "three": "^0.160.0",
     "zustand": "^4.4.7"
