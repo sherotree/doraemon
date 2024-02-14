@@ -37,7 +37,7 @@ export default function PresetCharts() {
 
         return (
           <div
-            key={sample.id}
+            key={index}
             onClick={() => {
               const { columns, data } = genColumnAndDataFromOption(sample);
               console.log('columns', option);
