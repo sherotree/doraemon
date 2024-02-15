@@ -14,7 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "noImplicitAny": false,
-    "typeRoots": ["../node_modules/@types", "../node_modules/@figma"],
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
     "plugins": [
       {
         "name": "next"

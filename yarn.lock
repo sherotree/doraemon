@@ -93,10 +93,10 @@
   resolved "https://registry.yarnpkg.com/@excalidraw/excalidraw/-/excalidraw-0.17.2.tgz#9a636a1e6bb3c88c5883347d3a7e75e9cce8ab96"
   integrity sha512-7pqUWD8+mPjDhF4XxG3gw4rvE2JGaLW3Vss5UZfTbITPxAtFaGEc1K081bncitnaYhUwN9ENJE0i87QB3poDwQ==
 
-"@figma/plugin-typings@^1.83.0":
-  version "1.83.0"
-  resolved "https://registry.npmmirror.com/@figma/plugin-typings/-/plugin-typings-1.83.0.tgz#f755e43a59527c7fd02e6939ac1efffe1c8b1703"
-  integrity sha512-gWdFDhGLN30omh6FmM3MRa5pSWtMZ3GSg3RsTZWuO/FxffL0PPfz9DMTLElIz9TypUzQFI8V+ghvh0/AUvOi2A==
+"@figma/plugin-typings@1.86.0":
+  version "1.86.0"
+  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.86.0.tgz#748ae574121eda7f06b43d0ce80e40e06a4a69cc"
+  integrity sha512-dtdezfZc6h2QLfj1Kd6jrmIdnBrT7Hq7FmLWa9GIuyII8enMjuX1xFidgYehoNWTDdIJOG92zXof1rvROYAgYA==
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"

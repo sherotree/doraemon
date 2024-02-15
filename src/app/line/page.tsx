@@ -2,7 +2,7 @@
 
 import { ConfigProvider, Segmented, Button, Drawer } from 'antd';
 import { Chart } from './chart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useGlobalStore } from './store';
 import { omit } from 'lodash';
 import { useTheme } from 'fig-components';
@@ -16,12 +16,16 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IMMUTABLE_CONFIG } from './constants';
 import Table from './component/table/table-page';
 import { Panel, PanelGroup } from 'react-resizable-panels';
-
+import { on } from 'fig-tools';
+import { emit } from './emit';
+import { useUserStore } from './user-store';
 import ResizeHandle from './resize-handle';
 import styles from './styles.module.css';
+import { Header } from './component/header';
 
 export default function LinePage() {
   const { columns, data, commonConfig, config } = useGlobalStore();
+  const { setLanguage, setStorage, route, setDocumentUseCount } = useUserStore();
   const [open, setOpen] = useState(false);
   const theme = useTheme();
 
@@ -63,6 +67,25 @@ export default function LinePage() {
     // dataZoom: config.dataZoom,
   };
 
+  useEffect(() => {
+    emit('get-storage');
+    emit('get-document-use-count');
+  }, []);
+
+  useEffect(() => {
+    on('get-storage', storage => {
+      setStorage(storage);
+      // const language = storage.language || i18n.language;
+      // i18n.changeLanguage(language);
+      // setLanguage(language);
+      // setStorage(storage);
+    });
+
+    on('get-document-use-count', documentUseCount => {
+      setDocumentUseCount(documentUseCount);
+    });
+  }, []);
+
   return (
     <ConfigProvider theme={theme}>
       <div className="p-4 flex gap-4 text-[12px] text-[var(--fig-color-text-secondary)] h-full">
@@ -80,6 +103,7 @@ export default function LinePage() {
 
         <div className="gap-3 w-[240px] flex-shrink-0">
           <div className="flex flex-col gap-3 w-[210px] flex-shrink-0 items-start">
+            <Header />
             <GeneralConfig />
             <AxisConfig />
             <LegendConfig />
