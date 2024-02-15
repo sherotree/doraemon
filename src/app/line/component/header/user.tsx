@@ -3,7 +3,7 @@ import { emit } from '../../emit';
 import { useEffect, useState } from 'react';
 
 export default function User() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null!);
 
   useEffect(() => {
     emit('get-storage');
@@ -11,7 +11,7 @@ export default function User() {
 
   useEffect(() => {
     on('get-storage', storage => {
-      setCurrentUser(storage.currentUser);
+      setCurrentUser(storage?.currentUser);
     });
   }, []);
 
