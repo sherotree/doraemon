@@ -9,7 +9,7 @@ export function Header() {
   const isPro = storage?.license?.result === 'VALID';
 
   return (
-    <div className="mb-4 flex h-[48px] items-center justify-between">
+    <div className="mb-4 flex h-[48px] items-center justify-between w-full">
       <User />
 
       <div className="flex items-center gap-2">

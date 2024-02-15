@@ -102,7 +102,7 @@ export default function LinePage() {
         </div>
 
         <div className="gap-3 w-[240px] flex-shrink-0">
-          <div className="flex flex-col gap-3 w-[210px] flex-shrink-0 items-start">
+          <div className="flex flex-col gap-3 flex-shrink-0 items-start">
             <Header />
             <GeneralConfig />
             <AxisConfig />
