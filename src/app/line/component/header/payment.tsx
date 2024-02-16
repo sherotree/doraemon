@@ -1,10 +1,11 @@
 import { Input, Button, ConfigProvider } from 'antd';
-import { emit, validateGumroadLicenseKeyUiAsync } from 'fig-tools';
+import { validateGumroadLicenseKeyUiAsync } from 'fig-tools';
 import { useState } from 'react';
 import PaymentSuccess from './payment-success';
 import { useUserStore } from '../../user-store';
 import { ArrowCircleLeftFillIcon } from 'fig-components';
 import i18n from 'i18next';
+import { emit } from '../../emit';
 
 export default function Payment() {
   const { setStorage, setRoute } = useUserStore();

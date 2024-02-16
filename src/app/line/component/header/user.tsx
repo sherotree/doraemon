@@ -1,5 +1,4 @@
-import { on } from 'fig-tools';
-import { emit } from '../../emit';
+import { emit, on } from '../../emit';
 import { useEffect, useState } from 'react';
 
 export default function User() {

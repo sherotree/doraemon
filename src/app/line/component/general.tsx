@@ -1,5 +1,5 @@
 import { useGlobalStore } from '../store';
-import { Switch } from 'antd';
+import { Switch, Checkbox } from 'antd';
 
 export default function GeneralConfig() {
   const { commonConfig, setCommonConfig, config, setConfig } = useGlobalStore();
@@ -19,17 +19,14 @@ export default function GeneralConfig() {
         />
       </div>
 
-      {/* Title */}
-      <div className="flex flex-col gap-1">
-        <div>Show Title</div>
-        <Switch
-          className="w-[40px]"
-          checked={config.title.show}
-          onChange={value => {
-            setCommonConfig({ title: { show: value } });
-          }}
-        />
-      </div>
+      <Checkbox
+        checked={commonConfig.title.show}
+        onChange={e => {
+          setCommonConfig({ title: { show: e.target.checked } });
+        }}
+      >
+        Show Title
+      </Checkbox>
     </div>
   );
 }

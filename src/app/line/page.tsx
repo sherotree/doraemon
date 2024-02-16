@@ -16,8 +16,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IMMUTABLE_CONFIG } from './constants';
 import Table from './component/table/table-page';
 import { Panel, PanelGroup } from 'react-resizable-panels';
-import { on } from 'fig-tools';
-import { emit } from './emit';
+// import { on } from 'fig-tools';
+import { emit, on } from './emit';
 import { useUserStore } from './user-store';
 import ResizeHandle from './resize-handle';
 import styles from './styles.module.css';
@@ -74,6 +74,7 @@ export default function LinePage() {
 
   useEffect(() => {
     on('get-storage', storage => {
+      console.log('storage', storage);
       setStorage(storage);
       // const language = storage.language || i18n.language;
       // i18n.changeLanguage(language);
