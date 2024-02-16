@@ -7,9 +7,6 @@ import { useGlobalStore } from './store';
 import { omit } from 'lodash';
 import { useTheme } from 'fig-components';
 import GeneralConfig from './component/general';
-import AxisConfig from './component/axis';
-import LegendConfig from './component/legend';
-import GridConfig from './component/grid';
 import DataPanel from './component/data-panel';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -106,9 +103,6 @@ export default function LinePage() {
           <div className="flex flex-col gap-3 flex-shrink-0 items-start">
             <Header />
             <GeneralConfig />
-            <AxisConfig />
-            <LegendConfig />
-            <GridConfig />
 
             <Button type="primary" onClick={() => setOpen(true)}>
               Edit Data
