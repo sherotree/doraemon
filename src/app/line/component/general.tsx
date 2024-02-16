@@ -40,7 +40,7 @@ export default function GeneralConfig() {
               setCommonConfig({ xAxis: { ...commonConfig.xAxis, show: e.target.checked } });
             }}
           >
-            Enabled xAxis
+            Show xAxis
           </Checkbox>
 
           <Checkbox
@@ -49,7 +49,7 @@ export default function GeneralConfig() {
               setCommonConfig({ xAxis: { ...commonConfig.xAxis, boundaryGap: e.target.checked } });
             }}
           >
-            Enabled xAxis boundaryGap
+            Show xAxis boundaryGap
           </Checkbox>
 
           <Checkbox
@@ -58,7 +58,7 @@ export default function GeneralConfig() {
               setCommonConfig({ yAxis: { ...commonConfig.yAxis, show: e.target.checked } });
             }}
           >
-            Enabled yAxis
+            Show yAxis
           </Checkbox>
 
           <Checkbox
@@ -67,7 +67,7 @@ export default function GeneralConfig() {
               setCommonConfig({ legend: { ...commonConfig.legend, show: e.target.checked } });
             }}
           >
-            Enabled Legend
+            Show Legend
           </Checkbox>
 
           <Checkbox
@@ -76,7 +76,7 @@ export default function GeneralConfig() {
               setCommonConfig({ grid: { ...commonConfig.grid, show: e.target.checked } });
             }}
           >
-            Enabled Grid
+            Show Grid
           </Checkbox>
         </div>
       </div>
