@@ -96,22 +96,31 @@ export default function LinePage() {
             <Header />
             <GeneralConfig />
 
-            <Button type="primary" onClick={() => setOpen(true)}>
-              Edit Data
-            </Button>
+            <div>
+              <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Data</div>
+              <div className="inline-flex gap-1">
+                <Button>Random</Button>
+                <Button onClick={() => setOpen(true)}>Edit</Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {open && (
-        <Drawer width={800} open title="Edit Data" onClose={() => setOpen(false)}>
-          <div>
-            {columns?.length > 10 && <div>Only support columns less than 10</div>}
-            {columns?.length <= 10 && (
-              <DndProvider backend={HTML5Backend}>
-                <Table />
-              </DndProvider>
-            )}
+        <Drawer width={1000} open title="Edit Data" onClose={() => setOpen(false)}>
+          <div className="flex flex-col">
+            <div>
+              {columns?.length > 100 && <div>Only support columns less than 10</div>}
+              {columns?.length <= 100 && (
+                <DndProvider backend={HTML5Backend}>
+                  <Table />
+                </DndProvider>
+              )}
+            </div>
+            <div>
+              <Chart option={configOption} key={configOption.color.join('')} />
+            </div>
           </div>
         </Drawer>
       )}

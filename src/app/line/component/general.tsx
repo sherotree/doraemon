@@ -1,5 +1,5 @@
 import { useGlobalStore } from '../store';
-import { Switch, Checkbox, ColorPicker } from 'antd';
+import { Switch, Checkbox, ColorPicker, Button } from 'antd';
 
 export default function GeneralConfig() {
   const { commonConfig, setCommonConfig } = useGlobalStore();

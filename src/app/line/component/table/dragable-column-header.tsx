@@ -49,6 +49,7 @@ export function DraggableColumnHeader(props: DraggableColumnHeaderProps) {
         opacity: isDragging ? 0.5 : 1,
         position: 'relative',
         width: header.getSize(),
+        minWidth: 100,
       }}
     >
       <div ref={previewRef} className="relative py-5 px-4">
