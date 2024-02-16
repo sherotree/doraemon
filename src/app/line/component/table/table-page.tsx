@@ -12,7 +12,7 @@ const defaultColumn: Partial<ColumnDef<any>> = {
   size: 122,
   minSize: 111,
   maxSize: Number.MAX_SAFE_INTEGER,
-  enableResizing: true,
+  enableResizing: false,
 };
 
 export default function Table() {
@@ -30,7 +30,7 @@ export default function Table() {
     data,
     defaultColumn,
     columns: formattedColumns,
-    enableColumnResizing: true,
+    enableColumnResizing: false,
     columnResizeMode: 'onChange',
     state: {},
     getCoreRowModel: getCoreRowModel(),

@@ -53,14 +53,6 @@ export function DraggableColumnHeader(props: DraggableColumnHeaderProps) {
       }}
     >
       <div ref={previewRef} className="relative py-5 px-4">
-        <div
-          ref={dragRef}
-          className="absolute w-8 h-5 hover:bg-gray-400"
-          style={{
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}
-        />
         {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
         {header.column.getCanResize() && (
           <div
