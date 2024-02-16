@@ -2,7 +2,7 @@ import { useGlobalStore } from '../store';
 import { Switch, Checkbox } from 'antd';
 
 export default function GeneralConfig() {
-  const { commonConfig, setCommonConfig, config, setConfig } = useGlobalStore();
+  const { commonConfig, setCommonConfig } = useGlobalStore();
 
   return (
     <div className="flex flex-col gap-4">
