@@ -505,7 +505,7 @@ export const SAMPLES: any = [
 
 export const DEFAULT_SERIES_CONFIG: any = {
   type: 'line',
-  name: 'Line',
+  // name: 'Line',
   symbol: 'circle',
   symbolSize: 6,
   showSymbol: true,

@@ -63,7 +63,6 @@ export default function LinePage() {
 
   useEffect(() => {
     on('get-storage', storage => {
-      console.log('storage', storage);
       setStorage(storage);
       // const language = storage.language || i18n.language;
       // i18n.changeLanguage(language);

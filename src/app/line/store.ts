@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { uniqueId } from 'lodash';
+import { uniqueId, last, omit } from 'lodash';
 import { DEFAULT_SERIES_CONFIG, SAMPLES } from './constants';
 import { genColumnAndDataFromOption } from './utils';
 
@@ -27,13 +27,20 @@ export const useGlobalStore = create<IProps>((set, get) => ({
   setData: data => set({ data }),
   addRow: () => {
     const data = get().data;
+    const lastRow = last(data);
+    const lastRowSeriesConfig = omit(lastRow.seriesConfig, 'name');
     const columns = get().columns;
     const row = {};
+
     columns.forEach((column: any, index: number) => {
-      row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(Math.random() * 100);
+      const value = lastRow[column.id];
+      const randomValue = Math.random();
+      const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
+      const ratio = isOdd ? 1 + randomValue : 1 - randomValue;
+      row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(ratio * value);
     });
 
-    Object.assign(row, { seriesConfig: { ...DEFAULT_SERIES_CONFIG } });
+    Object.assign(row, { seriesConfig: lastRowSeriesConfig });
 
     set({ data: [...data, row] });
   },
