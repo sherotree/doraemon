@@ -10,10 +10,8 @@ import GeneralConfig from './component/general';
 import DataPanel from './component/data-panel';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { IMMUTABLE_CONFIG } from './constants';
 import Table from './component/table/table-page';
 import { Panel, PanelGroup } from 'react-resizable-panels';
-// import { on } from 'fig-tools';
 import { emit, on } from './emit';
 import { useUserStore } from './user-store';
 import ResizeHandle from './resize-handle';
@@ -29,12 +27,6 @@ export default function LinePage() {
   const columnsOmitFirst = columns.slice(1);
 
   const configOption = {
-    // tooltip: {
-    //   trigger: 'none',
-    //   axisPointer: {
-    //     type: 'cross',
-    //   },
-    // },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -44,7 +36,7 @@ export default function LinePage() {
         },
       },
     },
-    color: IMMUTABLE_CONFIG.color,
+    color: commonConfig.color,
     title: config.title.map(t => ({ ...t, ...commonConfig.title })),
     xAxis: config.xAxis.map(x => ({
       ...x,
@@ -94,7 +86,7 @@ export default function LinePage() {
             </Panel>
             <ResizeHandle />
             <Panel className={styles.Panel} collapsible={true} order={2}>
-              <Chart option={configOption} />
+              <Chart option={configOption} key={configOption.color.join('')} />
             </Panel>
           </PanelGroup>
         </div>

@@ -1,5 +1,5 @@
 import { useGlobalStore } from '../store';
-import { Switch, Checkbox } from 'antd';
+import { Switch, Checkbox, ColorPicker } from 'antd';
 
 export default function GeneralConfig() {
   const { commonConfig, setCommonConfig } = useGlobalStore();
@@ -78,6 +78,26 @@ export default function GeneralConfig() {
           >
             Enabled Grid
           </Checkbox>
+        </div>
+      </div>
+
+      <div>
+        <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Color</div>
+        <div className="flex gap-1">
+          {commonConfig.color.map((color: string, index: number) => {
+            return (
+              <ColorPicker
+                key={index}
+                defaultValue={color}
+                size="small"
+                onChange={(_, value) => {
+                  const color = commonConfig.color;
+                  color[index] = value;
+                  setCommonConfig({ color });
+                }}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
