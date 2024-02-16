@@ -1,6 +1,6 @@
-import { RAINFALL_VS_EVAPORATION } from './grid-multiple';
-import { LARGE_AREA_CHART } from './area-simple';
-import { MULTIPLE_X_AXES } from './multiple-x-axis';
+import { RAINFALL_VS_EVAPORATION } from './data/grid-multiple';
+import { LARGE_AREA_CHART } from './data/area-simple';
+import { MULTIPLE_X_AXES } from './data/multiple-x-axis';
 
 export const IMMUTABLE_CONFIG: any = {
   grid: {
