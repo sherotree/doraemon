@@ -58,14 +58,15 @@ export const useGlobalStore = create<IProps>((set, get) => ({
   },
   addColumn: () => {
     const columns = get().columns;
+    const lastCol = last(columns);
     const data = get().data;
     const id = uniqueId();
-    const label = `Column ${columns.length + 1}`;
+    const label = `C ${columns.length + 1}`;
     const column = { id, label };
     columns.push(column);
 
     data.forEach(item => {
-      item[id] = null;
+      item[id] = item[lastCol.id];
     });
 
     set({ columns, data });

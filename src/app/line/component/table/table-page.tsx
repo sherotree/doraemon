@@ -3,6 +3,7 @@ import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, ColumnD
 import { TableCell } from './table-cell';
 import { TableHeader } from './table-header';
 import { DraggableColumnHeader } from './dragable-column-header';
+import { useRef } from 'react';
 import './custom.css';
 
 const columnHelper = createColumnHelper<any>();
@@ -17,6 +18,7 @@ const defaultColumn: Partial<ColumnDef<any>> = {
 
 export default function Table() {
   const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn } = useGlobalStore();
+  const ref = useRef<HTMLDivElement>(null);
 
   const formattedColumns = columns.map((column: any) => {
     return columnHelper.accessor(column.id, {
@@ -50,7 +52,7 @@ export default function Table() {
   return (
     <div className="flex flex-col gap-2 p-2">
       <div className="flex gap-2">
-        <div className="max-w-full w-full max-h-[300px] overflow-auto">
+        <div className="max-w-full w-full max-h-[300px] overflow-auto" ref={ref}>
           <table className="w-full" style={{ border: `1px solid var(--fig-color-border)` }}>
             <thead>
               {headerGroups.map(headerGroup => (
@@ -99,7 +101,12 @@ export default function Table() {
         </div>
 
         <div
-          onClick={addColumn}
+          onClick={() => {
+            addColumn();
+            setTimeout(() => {
+              ref.current?.scrollTo({ left: ref.current?.scrollWidth });
+            }, 0);
+          }}
           className="w-6 flex-shrink-0 flex-grow-0 bg-[var(--fig-color-bg-tertiary)] justify-center items-center flex cursor-pointer"
         >
           +
@@ -108,7 +115,12 @@ export default function Table() {
 
       <div className="flex gap-2">
         <div
-          onClick={addRow}
+          onClick={() => {
+            addRow();
+            setTimeout(() => {
+              ref.current?.scrollTo({ top: ref.current?.scrollHeight });
+            }, 0);
+          }}
           className="h-6 w-full flex bg-[var(--fig-color-bg-tertiary)] justify-center items-center cursor-pointer"
         >
           +

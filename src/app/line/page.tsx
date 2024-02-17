@@ -25,6 +25,7 @@ export default function LinePage() {
   const theme = useTheme();
 
   const columnsOmitFirst = columns.slice(1);
+  console.log(data, columnsOmitFirst);
 
   const configOption = {
     tooltip: {
@@ -47,11 +48,10 @@ export default function LinePage() {
     grid: config.grid.map(g => ({ ...g, ...commonConfig.grid })),
     legend: config.legend.map(l => ({ ...l, ...commonConfig.legend })),
     visualMap: config.visualMap,
-    series: data.map((_data: any) => {
-      const omitData = omit(_data, 'rowKey', 'seriesConfig');
-      const seriesConfig = _data.seriesConfig;
-
-      return { ...seriesConfig, data: Object.values(omitData) };
+    series: data.map((item: any) => {
+      const seriesConfig = item.seriesConfig;
+      const _data = columnsOmitFirst.map((x: any) => item[x.id]);
+      return { ...seriesConfig, data: _data };
     }),
     // dataZoom: config.dataZoom,
   };
