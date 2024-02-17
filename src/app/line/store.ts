@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { uniqueId, last, omit } from 'lodash';
-import { DEFAULT_SERIES_CONFIG, SAMPLES } from './constants';
+import { SAMPLES } from './constants';
 import { genColumnAndDataFromOption } from './utils';
 
 const { columns, data } = genColumnAndDataFromOption(SAMPLES[0]);
