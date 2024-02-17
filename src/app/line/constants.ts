@@ -118,7 +118,7 @@ const BASIC_LINE_CHART = {
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
   yAxis: [IMMUTABLE_CONFIG.yAxis],
   visualMap: [],
-  series: [{ data: [150, 230, 224, 218, 135, 147, 260], type: 'line' }],
+  series: [{ data: [150, 230, 224, 218, 135, 147, 260], type: 'line', name: 'count' }],
 };
 
 const SMOOTHED_LINE_CHART = {
@@ -129,7 +129,7 @@ const SMOOTHED_LINE_CHART = {
   xAxis: [{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], type: 'category' }],
   yAxis: [IMMUTABLE_CONFIG.yAxis],
   visualMap: [],
-  series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', smooth: true }],
+  series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', smooth: true, name: 'count' }],
 };
 
 const BASIC_AREA_CHART = {
@@ -140,7 +140,7 @@ const BASIC_AREA_CHART = {
   xAxis: [{ type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }],
   yAxis: [IMMUTABLE_CONFIG.yAxis],
   visualMap: [],
-  series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', areaStyle: {} }],
+  series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', areaStyle: {}, name: 'count' }],
 };
 
 const STACKED_LINE_CHART = {

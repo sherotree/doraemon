@@ -189,7 +189,7 @@ function generateRandomTableData(params) {
 
     for (let j = 0; j < columns.length; j++) {
       // @ts-ignore
-      row[columns[j].id] = j === 0 ? `Sample ${uniqueId()}` : randomArray[j - 1];
+      row[columns[j].id] = j === 0 ? `Line ${uniqueId()}` : randomArray[j - 1];
     }
     seriesData.push(randomArray);
     data.push(row);

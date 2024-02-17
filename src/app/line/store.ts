@@ -37,7 +37,7 @@ export const useGlobalStore = create<IProps>((set, get) => ({
       const randomValue = Math.random();
       const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
       const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
-      row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(ratio * value);
+      row[column.id] = index === 0 ? `Line ${uniqueId()}` : Math.ceil(ratio * value);
     });
 
     Object.assign(row, { seriesConfig: lastRowSeriesConfig });

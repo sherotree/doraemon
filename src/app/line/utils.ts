@@ -14,7 +14,7 @@ export function genColumnAndDataFromOption(sample) {
     const row = { seriesConfig: { ...DEFAULT_SERIES_CONFIG, ...omit(sample.series[i], ['data']) } };
 
     for (let j = 0; j < columns.length; j++) {
-      row[columns[j].id] = j === 0 ? `Sample ${uniqueId()}` : sample.series[i].data[j - 1];
+      row[columns[j].id] = j === 0 ? `${series[i].name}` : sample.series[i].data[j - 1];
     }
     data.push(row);
   }
