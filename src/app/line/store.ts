@@ -78,11 +78,11 @@ export const useGlobalStore = create<IProps>((set, get) => ({
   setColumns: columns => set({ columns }),
   commonConfig: {
     theme: 'light',
-    grid: { show: true },
+    grid: { show: false },
     legend: { show: true },
     xAxis: { show: true, boundaryGap: true },
     yAxis: { show: true, boundaryGap: true },
-    title: { show: true },
+    title: { show: false },
     color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
   },
   setCommonConfig: commonConfig => set(state => ({ commonConfig: { ...state.commonConfig, ...commonConfig } })),
