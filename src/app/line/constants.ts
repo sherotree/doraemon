@@ -39,9 +39,9 @@ export const IMMUTABLE_CONFIG: any = {
 export const SMALL_CHART_IMMUTABLE_CONFIG = {
   title: {
     textStyle: {
-      fontSize: 11,
+      fontSize: 10,
       fontStyle: 'normal',
-      fontWeight: 'bold',
+      // fontWeight: 'bold',
     },
     padding: 8,
   },

@@ -1,7 +1,6 @@
 'use client';
 
 import { ConfigProvider, Button, Drawer } from 'antd';
-import { Chart } from './chart';
 import { useState, useEffect } from 'react';
 import { useGlobalStore } from './store';
 import { useTheme } from 'fig-components';
