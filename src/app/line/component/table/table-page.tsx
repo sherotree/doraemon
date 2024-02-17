@@ -52,7 +52,7 @@ export default function Table() {
   return (
     <div className="flex flex-col gap-2 p-2">
       <div className="flex gap-2">
-        <div className="max-w-full w-full max-h-[300px] overflow-auto" ref={ref}>
+        <div className="max-w-full w-full max-h-[180px] overflow-auto" ref={ref}>
           <table className="w-full" style={{ border: `1px solid var(--fig-color-border)` }}>
             <thead>
               {headerGroups.map(headerGroup => (

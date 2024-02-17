@@ -1,10 +1,9 @@
 'use client';
 
-import { ConfigProvider, Segmented, Button, Drawer } from 'antd';
+import { ConfigProvider, Button, Drawer } from 'antd';
 import { Chart } from './chart';
 import { useState, useEffect } from 'react';
 import { useGlobalStore } from './store';
-import { omit } from 'lodash';
 import { useTheme } from 'fig-components';
 import GeneralConfig from './component/general';
 import DataPanel from './component/data-panel';
@@ -16,6 +15,7 @@ import { emit, on } from './emit';
 import { useUserStore } from './user-store';
 import ResizeHandle from './resize-handle';
 import styles from './styles.module.css';
+import ReactECharts from 'echarts-for-react';
 import { Header } from './component/header';
 
 export default function LinePage() {
@@ -25,7 +25,6 @@ export default function LinePage() {
   const theme = useTheme();
 
   const columnsOmitFirst = columns.slice(1);
-  console.log(data, columnsOmitFirst);
 
   const configOption = {
     tooltip: {
@@ -107,18 +106,43 @@ export default function LinePage() {
       </div>
 
       {open && (
-        <Drawer width={1000} open title="Edit Data" onClose={() => setOpen(false)}>
-          <div className="flex flex-col">
-            <div>
-              {columns?.length > 100 && <div>Only support columns less than 10</div>}
-              {columns?.length <= 100 && (
-                <DndProvider backend={HTML5Backend}>
-                  <Table />
-                </DndProvider>
-              )}
+        <Drawer
+          width={1000}
+          open
+          title="Edit Data"
+          onClose={() => setOpen(false)}
+          headerStyle={{ padding: '8px 12px' }}
+          bodyStyle={{
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '8px 12px',
+            gap: 16,
+            justifyContent: 'space-between',
+          }}
+          extra={
+            <div className="inline-flex gap-2">
+              <Button>Cancel</Button>
+              <Button type="primary">Save</Button>
             </div>
-            <div>
-              <Chart option={configOption} key={configOption.color.join('')} />
+          }
+        >
+          <div>
+            {columns?.length > 100 && <div>Only support columns less than 10</div>}
+            {columns?.length <= 100 && (
+              <DndProvider backend={HTML5Backend}>
+                <Table />
+              </DndProvider>
+            )}
+          </div>
+          <div>
+            <div className="bg-[var(--fig-color-bg-hover)] px-6 py-8">
+              <ReactECharts
+                style={{ width: '100%', height: 240, backgroundColor: '#ffffff' }}
+                notMerge
+                option={configOption}
+                theme={commonConfig.theme}
+                opts={{ renderer: 'svg' }}
+              />
             </div>
           </div>
         </Drawer>
