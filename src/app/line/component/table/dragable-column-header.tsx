@@ -52,7 +52,7 @@ export function DraggableColumnHeader(props: DraggableColumnHeaderProps) {
         minWidth: 100,
       }}
     >
-      <div ref={previewRef} className="relative py-5 px-4">
+      <div ref={previewRef} className="relative py-2 px-3">
         {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
         {header.column.getCanResize() && (
           <div
