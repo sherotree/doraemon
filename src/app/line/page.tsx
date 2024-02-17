@@ -16,10 +16,11 @@ import ResizeHandle from './resize-handle';
 import styles from './styles.module.css';
 import ReactECharts from 'echarts-for-react';
 import { Header } from './component/header';
+import { omit, pick } from 'lodash';
 
 export default function LinePage() {
-  const { columns, data, commonConfig, config } = useGlobalStore();
-  const { setLanguage, setStorage, route, setDocumentUseCount } = useUserStore();
+  const { columns, data, commonConfig, config, setData } = useGlobalStore();
+  const { setLanguage, setStorage, setDocumentUseCount } = useUserStore();
   const [open, setOpen] = useState(false);
   const ref = useRef<any>(null!);
   const theme = useTheme();
@@ -107,7 +108,26 @@ export default function LinePage() {
             <div>
               <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Data</div>
               <div className="inline-flex gap-1">
-                <Button>Random</Button>
+                <Button
+                  onClick={() => {
+                    const _data = [];
+                    data.forEach((item: any, index: number) => {
+                      const omitData = omit(item, ['seriesConfig', 'rowKey']);
+                      const current = pick(item, ['seriesConfig', 'rowKey']);
+                      const randomData = {};
+                      Object.keys(omitData).forEach(key => {
+                        const randomValue = Math.random();
+                        const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
+                        const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
+                        randomData[key] = Math.ceil(omitData[key] * ratio);
+                      });
+                      _data.push({ ...current, ...randomData });
+                    });
+                    setData(_data);
+                  }}
+                >
+                  Random
+                </Button>
                 <Button onClick={() => setOpen(true)}>Edit</Button>
               </div>
             </div>
