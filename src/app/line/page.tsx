@@ -49,8 +49,9 @@ export default function LinePage() {
     visualMap: config.visualMap,
     series: data.map((item: any) => {
       const seriesConfig = item.seriesConfig;
+
       const _data = columnsOmitFirst.map((x: any) => item[x.id]);
-      return { ...seriesConfig, data: _data };
+      return { ...seriesConfig, data: _data, name: item.rowKey };
     }),
     // dataZoom: config.dataZoom,
   };
