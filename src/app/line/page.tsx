@@ -84,7 +84,15 @@ export default function LinePage() {
             </Panel>
             <ResizeHandle />
             <Panel className={styles.Panel} collapsible={true} order={2}>
-              <Chart option={configOption} key={configOption.color.join('')} />
+              <div className="bg-[var(--fig-color-bg-hover)] px-4 py-4" key={configOption.color.join('')}>
+                <ReactECharts
+                  style={{ width: '100%', height: 240, backgroundColor: '#ffffff' }}
+                  notMerge
+                  option={configOption}
+                  theme={commonConfig.theme}
+                  opts={{ renderer: 'svg' }}
+                />
+              </div>
             </Panel>
           </PanelGroup>
         </div>

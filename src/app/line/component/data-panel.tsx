@@ -28,7 +28,7 @@ export default function PresetCharts() {
           color: IMMUTABLE_CONFIG.color,
           grid,
           title,
-          yAxis,
+          yAxis: { show: false },
           xAxis,
           series,
           visualMap,
@@ -46,7 +46,7 @@ export default function PresetCharts() {
             }}
           >
             <ReactECharts
-              style={{ width: 160 * 1.1, height: 96 * 1.1 }}
+              style={{ width: 160 * 1, height: 96 * 1 }}
               option={option}
               // theme={commonConfig.theme}
               opts={{ renderer: 'svg' }}

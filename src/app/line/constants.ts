@@ -39,7 +39,7 @@ export const IMMUTABLE_CONFIG: any = {
 export const SMALL_CHART_IMMUTABLE_CONFIG = {
   title: {
     textStyle: {
-      fontSize: 12,
+      fontSize: 11,
       fontStyle: 'normal',
       fontWeight: 'bold',
     },
@@ -492,13 +492,13 @@ export const SAMPLES: any = [
   SMOOTHED_LINE_CHART,
   BASIC_AREA_CHART,
   STACKED_LINE_CHART,
-  STACKED_AREA_CHART,
+  // STACKED_AREA_CHART,
   GRADIENT_STACKED_AREA_CHART,
   BUMP_CHART,
   TEMPERATURE_CHANGE,
   DISTRIBUTION_OF_ELECTRICITY,
-  RAINFALL_VS_EVAPORATION,
-  LARGE_AREA_CHART,
+  // RAINFALL_VS_EVAPORATION,
+  // LARGE_AREA_CHART,
   MULTIPLE_X_AXES,
   STEP_LINE,
 ];
