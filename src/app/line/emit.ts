@@ -2,7 +2,7 @@ export const emit = function (name: string, ...args: any): void {
   window.parent.postMessage(
     {
       pluginMessage: [name, ...args],
-      pluginId: 'Uwarp Line Chart',
+      pluginId: '1340557036755846279',
     },
     '*',
   );

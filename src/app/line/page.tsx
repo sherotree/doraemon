@@ -1,7 +1,7 @@
 'use client';
 
 import { ConfigProvider, Button, Drawer } from 'antd';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useGlobalStore } from './store';
 import { useTheme } from 'fig-components';
 import GeneralConfig from './component/general';
@@ -21,6 +21,7 @@ export default function LinePage() {
   const { columns, data, commonConfig, config } = useGlobalStore();
   const { setLanguage, setStorage, route, setDocumentUseCount } = useUserStore();
   const [open, setOpen] = useState(false);
+  const ref = useRef<any>(null!);
   const theme = useTheme();
 
   const columnsOmitFirst = columns.slice(1);
@@ -90,13 +91,14 @@ export default function LinePage() {
                   option={configOption}
                   theme={commonConfig.theme}
                   opts={{ renderer: 'svg' }}
+                  ref={ref}
                 />
               </div>
             </Panel>
           </PanelGroup>
         </div>
 
-        <div className="gap-3 w-[240px] flex-shrink-0">
+        <div className="gap-3 w-[240px] flex-shrink-0 relative h-full flex flex-col justify-between">
           <div className="flex flex-col gap-3 flex-shrink-0 items-start">
             <Header />
             <GeneralConfig />
@@ -109,6 +111,18 @@ export default function LinePage() {
               </div>
             </div>
           </div>
+          <Button
+            type="primary"
+            className="w-full"
+            onClick={() => {
+              const echartInstance = ref.current.getEchartsInstance();
+              const base64 = echartInstance.getDataURL();
+              const svg: any = decodeURIComponent(base64).replace('data:image/svg+xml;charset=UTF-8,', '');
+              emit('create-from-svg', svg);
+            }}
+          >
+            Insert to Figma
+          </Button>
         </div>
       </div>
 
