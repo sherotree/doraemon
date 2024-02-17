@@ -36,7 +36,7 @@ export const useGlobalStore = create<IProps>((set, get) => ({
       const value = lastRow[column.id];
       const randomValue = Math.random();
       const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
-      const ratio = isOdd ? 1 + randomValue : 1 - randomValue;
+      const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
       row[column.id] = index === 0 ? `Sample ${uniqueId()}` : Math.ceil(ratio * value);
     });
 
@@ -65,8 +65,12 @@ export const useGlobalStore = create<IProps>((set, get) => ({
     const column = { id, label };
     columns.push(column);
 
+    const randomValue = Math.random();
+    const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
+    const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
+
     data.forEach(item => {
-      item[id] = item[lastCol.id];
+      item[id] = Math.ceil(item[lastCol.id] * ratio);
     });
 
     set({ columns, data });
