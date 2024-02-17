@@ -132,13 +132,15 @@ export default function LinePage() {
           open
           title="Edit Data"
           onClose={() => setOpen(false)}
-          headerStyle={{ padding: '8px 12px' }}
-          bodyStyle={{
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '8px 12px',
-            gap: 16,
-            justifyContent: 'space-between',
+          styles={{
+            header: { padding: '8px 12px' },
+            body: {
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '8px 12px',
+              gap: 16,
+              justifyContent: 'space-between',
+            },
           }}
           extra={
             <div className="inline-flex gap-2">
