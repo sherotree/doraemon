@@ -5,6 +5,7 @@ import { TableHeader } from './table-header';
 import { DraggableColumnHeader } from './dragable-column-header';
 import { useRef } from 'react';
 import './custom.css';
+import { DeleteIcon } from 'fig-components';
 
 const columnHelper = createColumnHelper<any>();
 
@@ -17,7 +18,7 @@ const defaultColumn: Partial<ColumnDef<any>> = {
 };
 
 export default function Table() {
-  const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn } = useGlobalStore();
+  const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn, removeRow } = useGlobalStore();
   const ref = useRef<HTMLDivElement>(null);
 
   const formattedColumns = columns.map((column: any) => {
@@ -50,9 +51,9 @@ export default function Table() {
   const headerGroups = table.getHeaderGroups();
 
   return (
-    <div className="flex flex-col gap-2 p-2 pt-0">
+    <div className="flex flex-col gap-2 p-2 pt-0 pl-0">
       <div className="flex gap-2">
-        <div className="max-w-full w-full max-h-[180px] overflow-auto pt-2" ref={ref}>
+        <div className="max-w-full w-full max-h-[180px] overflow-auto pt-2 pl-2" ref={ref}>
           <table className="w-full" style={{ border: `1px solid var(--fig-color-border)` }}>
             <thead>
               {headerGroups.map(headerGroup => (
@@ -85,14 +86,32 @@ export default function Table() {
                     const strokeTopWeight = rowIndex === 0 ? 0 : 1;
                     const borderStyle = 'solid';
 
+                    const canDelete = cIndex === 0 && rows.length > 1;
+
                     return (
                       <td
                         key={cell.id}
+                        className="relative"
                         style={{
                           borderLeft: `${strokeLeftWeight}px ${borderStyle} var(--fig-color-border)`,
                           borderTop: `${strokeTopWeight}px ${borderStyle} var(--fig-color-border)`,
                         }}
                       >
+                        {canDelete && (
+                          <span
+                            className="absolute w-8 h-8 flex justify-center items-center cursor-pointer text-transparent hover:text-[var(--fig-color-text-secondary)]"
+                            style={{
+                              top: '50%',
+                              left: 0,
+                              transform: 'translate(-50%, -50%)',
+                            }}
+                            onClick={() => {
+                              removeRow(cell.row.id);
+                            }}
+                          >
+                            <DeleteIcon className="w-4 h-4" />
+                          </span>
+                        )}
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     );

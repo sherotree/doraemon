@@ -14,6 +14,7 @@ interface IProps {
   updateColumnLabelById: (id: string, label: string) => void;
   addColumn: () => void;
   removeColumn: (id: string) => void;
+  removeRow: (id: string) => void;
   setColumns: (columns: any[]) => void;
   commonConfig: any;
   setCommonConfig: (config: any) => void;
@@ -107,5 +108,11 @@ export const useGlobalStore = create<IProps>((set, get) => ({
       delete item[id];
     });
     set({ columns, data });
+  },
+  removeRow: id => {
+    const data = get().data;
+    const index = data.findIndex(item => item.id === id);
+    data.splice(index, 1);
+    set({ data: [...data] });
   },
 }));
