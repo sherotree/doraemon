@@ -1,58 +1,47 @@
-import { flexRender, ColumnOrderState, Header, Table, Column } from '@tanstack/react-table';
-import { useDrag, useDrop } from 'react-dnd';
-
-const reorderColumn = (draggedColumnId: string, targetColumnId: string, columnOrder: string[]): ColumnOrderState => {
-  columnOrder.splice(
-    columnOrder.indexOf(targetColumnId),
-    0,
-    columnOrder.splice(columnOrder.indexOf(draggedColumnId), 1)[0] as string,
-  );
-  return [...columnOrder];
-};
+import { flexRender, ColumnOrderState, Header, Table } from '@tanstack/react-table';
+import { DeleteIcon } from 'fig-components';
+import { useGlobalStore } from '../../store';
 
 interface DraggableColumnHeaderProps {
   header: Header<any, unknown>;
   table: Table<any>;
   borderStyle: string;
   strokeLeftWeight: number;
+  canDelete: boolean;
 }
 
 export function DraggableColumnHeader(props: DraggableColumnHeaderProps) {
-  const { header, table, strokeLeftWeight, borderStyle } = props;
-  const { getState, setColumnOrder } = table;
+  const { header, table, strokeLeftWeight, borderStyle, canDelete } = props;
+  const { getState } = table;
   const { columnOrder } = getState();
-
-  const { column } = header;
-
-  const [, dropRef] = useDrop({
-    accept: 'column',
-    drop: (draggedColumn: Column<any>) => {
-      const newColumnOrder = reorderColumn(draggedColumn.id, column.id, columnOrder);
-      setColumnOrder(newColumnOrder);
-    },
-  });
-
-  const [{ isDragging }, dragRef, previewRef] = useDrag({
-    collect: monitor => ({
-      isDragging: monitor.isDragging(),
-    }),
-    item: () => column,
-    type: 'column',
-  });
+  const { removeColumn } = useGlobalStore();
 
   return (
     <th
-      ref={dropRef}
       colSpan={header.colSpan}
       style={{
         borderLeft: `${strokeLeftWeight}px ${borderStyle} var(--fig-color-border)`,
-        opacity: isDragging ? 0.5 : 1,
         position: 'relative',
         width: header.getSize(),
         minWidth: 100,
       }}
     >
-      <div ref={previewRef} className="relative py-2 px-3">
+      {canDelete && (
+        <div
+          className="absolute w-8 h-8 flex justify-center items-center cursor-pointer text-transparent hover:text-[var(--fig-color-text-secondary)]"
+          style={{
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+          onClick={() => {
+            removeColumn(header.column.id);
+          }}
+        >
+          <DeleteIcon className="w-4 h-4" />
+        </div>
+      )}
+
+      <div className="relative py-2 px-3">
         {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
         {header.column.getCanResize() && (
           <div

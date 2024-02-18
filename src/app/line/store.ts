@@ -13,6 +13,7 @@ interface IProps {
   updateCellData: (rowId: string, columnId: string, value: any) => void;
   updateColumnLabelById: (id: string, label: string) => void;
   addColumn: () => void;
+  removeColumn: (id: string) => void;
   setColumns: (columns: any[]) => void;
   commonConfig: any;
   setCommonConfig: (config: any) => void;
@@ -97,4 +98,14 @@ export const useGlobalStore = create<IProps>((set, get) => ({
   setConfig: config => set(state => ({ config: { ...state.config, ...config } })),
   customTemplates: [],
   setCustomTemplates: customTemplates => set({ customTemplates }),
+  removeColumn: id => {
+    const columns = get().columns;
+    const data = get().data;
+    const index = columns.findIndex(item => item.id === id);
+    columns.splice(index, 1);
+    data.forEach(item => {
+      delete item[id];
+    });
+    set({ columns, data });
+  },
 }));
