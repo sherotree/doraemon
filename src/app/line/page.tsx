@@ -6,9 +6,6 @@ import { useGlobalStore } from './store';
 import { useTheme } from 'fig-components';
 import GeneralConfig from './component/general';
 import DataPanel from './component/data-panel';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import Table from './component/table/table-page';
 import { Panel, PanelGroup } from 'react-resizable-panels';
 import { emit, on } from './emit';
 import { useUserStore } from './user-store';
@@ -16,11 +13,14 @@ import ResizeHandle from './resize-handle';
 import styles from './styles.module.css';
 import ReactECharts from 'echarts-for-react';
 import { Header } from './component/header';
-import { omit, pick } from 'lodash';
+import { useEditDataStore } from './edit-data-store';
+import { omit, pick, cloneDeep } from 'lodash';
+import EditPanel from './edit-panel';
 
 export default function LinePage() {
   const { columns, data, commonConfig, config, setData } = useGlobalStore();
   const { setLanguage, setStorage, setDocumentUseCount } = useUserStore();
+  const editDataStore = useEditDataStore();
   const [open, setOpen] = useState(false);
   const ref = useRef<any>(null!);
   const theme = useTheme();
@@ -128,7 +128,14 @@ export default function LinePage() {
                 >
                   Random
                 </Button>
-                <Button onClick={() => setOpen(true)}>Edit</Button>
+                <Button
+                  onClick={() => {
+                    setOpen(true);
+                    editDataStore.setData(cloneDeep(data));
+                  }}
+                >
+                  Edit
+                </Button>
               </div>
             </div>
           </div>
@@ -147,50 +154,7 @@ export default function LinePage() {
         </div>
       </div>
 
-      {open && (
-        <Drawer
-          width={1000}
-          open
-          title="Edit Data"
-          onClose={() => setOpen(false)}
-          styles={{
-            header: { padding: '8px 12px' },
-            body: {
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '8px 12px',
-              gap: 16,
-              justifyContent: 'space-between',
-            },
-          }}
-          extra={
-            <div className="inline-flex gap-2">
-              <Button>Cancel</Button>
-              <Button type="primary">Save</Button>
-            </div>
-          }
-        >
-          <div>
-            {columns?.length > 100 && <div>Only support columns less than 10</div>}
-            {columns?.length <= 100 && (
-              <DndProvider backend={HTML5Backend}>
-                <Table />
-              </DndProvider>
-            )}
-          </div>
-          <div>
-            <div className="bg-[var(--fig-color-bg-hover)] px-6 py-8">
-              <ReactECharts
-                style={{ width: '100%', height: 240, backgroundColor: '#ffffff' }}
-                notMerge
-                option={configOption}
-                theme={commonConfig.theme}
-                opts={{ renderer: 'svg' }}
-              />
-            </div>
-          </div>
-        </Drawer>
-      )}
+      {open && <EditPanel setOpen={setOpen} />}
     </ConfigProvider>
   );
 }

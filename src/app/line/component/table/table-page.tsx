@@ -1,4 +1,5 @@
-import { useGlobalStore } from '../../store';
+// import { useGlobalStore } from '../../store';
+import { useEditDataStore } from '../../edit-data-store';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, ColumnDef } from '@tanstack/react-table';
 import { TableCell } from './table-cell';
 import { TableHeader } from './table-header';
@@ -18,7 +19,7 @@ const defaultColumn: Partial<ColumnDef<any>> = {
 };
 
 export default function Table() {
-  const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn, removeRow } = useGlobalStore();
+  const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn, removeRow } = useEditDataStore();
   const ref = useRef<HTMLDivElement>(null);
 
   const formattedColumns = columns.map((column: any) => {

@@ -1,6 +1,7 @@
 import { Drawer } from 'antd';
 import React, { useState } from 'react';
-import { useGlobalStore } from '../../store';
+// import { useGlobalStore } from '../../store';
+import { useEditDataStore } from '../../edit-data-store';
 import { Switch, Select, ColorPicker } from 'antd';
 
 const SymbolOptions = [
@@ -37,7 +38,7 @@ export default function SeriesConfig(props: any) {
 
 function GeneralConfig(props: any) {
   const { seriesConfig, rowId } = props;
-  const { updateCellData } = useGlobalStore();
+  const { updateCellData } = useEditDataStore();
 
   return (
     <div className="flex flex-col gap-2">

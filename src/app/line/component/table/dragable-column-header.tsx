@@ -1,6 +1,6 @@
 import { flexRender, ColumnOrderState, Header, Table } from '@tanstack/react-table';
 import { DeleteIcon } from 'fig-components';
-import { useGlobalStore } from '../../store';
+import { useEditDataStore } from '../../edit-data-store';
 
 interface DraggableColumnHeaderProps {
   header: Header<any, unknown>;
@@ -14,7 +14,7 @@ export function DraggableColumnHeader(props: DraggableColumnHeaderProps) {
   const { header, table, strokeLeftWeight, borderStyle, canDelete } = props;
   const { getState } = table;
   const { columnOrder } = getState();
-  const { removeColumn } = useGlobalStore();
+  const { removeColumn } = useEditDataStore();
 
   return (
     <th
