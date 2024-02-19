@@ -3,7 +3,7 @@
 import { ConfigProvider, Button, Drawer } from 'antd';
 import { useState, useEffect, useRef } from 'react';
 import { useGlobalStore } from './store';
-import { useTheme } from 'fig-components';
+import { useTheme, RefreshIcon, StudyIcon } from 'fig-components';
 import GeneralConfig from './component/general';
 import DataPanel from './component/data-panel';
 import { Panel, PanelGroup } from 'react-resizable-panels';
@@ -16,6 +16,7 @@ import { Header } from './component/header';
 import { useEditDataStore } from './edit-data-store';
 import { omit, pick, cloneDeep } from 'lodash';
 import EditPanel from './edit-panel';
+import { ImportFromXLSX } from './import-from-xlsx';
 
 export default function LinePage() {
   const { columns, data, commonConfig, config, setData } = useGlobalStore();
@@ -107,7 +108,7 @@ export default function LinePage() {
 
             <div>
               <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Data</div>
-              <div className="inline-flex gap-1">
+              <div className="flex gap-2 flex-wrap">
                 <Button
                   onClick={() => {
                     const _data = [];
@@ -126,16 +127,24 @@ export default function LinePage() {
                     setData(_data);
                   }}
                 >
-                  Random
+                  <div className="inline-flex gap-2 items-center">
+                    <RefreshIcon className="w-4 h-4" />
+                    Random
+                  </div>
                 </Button>
                 <Button
                   onClick={() => {
                     setOpen(true);
                     editDataStore.setData(cloneDeep(data));
+                    editDataStore.setColumns(cloneDeep(columns));
                   }}
                 >
-                  Edit
+                  <div className="inline-flex gap-2 items-center">
+                    <StudyIcon className="w-4 h-4" />
+                    Edit
+                  </div>
                 </Button>
+                <ImportFromXLSX />
               </div>
             </div>
           </div>

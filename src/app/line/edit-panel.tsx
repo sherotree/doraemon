@@ -10,7 +10,7 @@ import { cloneDeep } from 'lodash';
 
 export default function EditPanel(props) {
   const { columns, data } = useEditDataStore();
-  const { setData, commonConfig, config } = useGlobalStore();
+  const { setData, commonConfig, config, setColumns } = useGlobalStore();
   const { setOpen } = props;
 
   const columnsOmitFirst = columns.slice(1);
@@ -68,6 +68,7 @@ export default function EditPanel(props) {
             type="primary"
             onClick={() => {
               setData(cloneDeep(data));
+              setColumns(cloneDeep(columns));
               setOpen(false);
             }}
           >

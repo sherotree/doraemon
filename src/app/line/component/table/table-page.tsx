@@ -22,6 +22,8 @@ export default function Table() {
   const { data, columns, updateColumnLabelById, updateCellData, addRow, addColumn, removeRow } = useEditDataStore();
   const ref = useRef<HTMLDivElement>(null);
 
+  console.log({ data, columns });
+
   const formattedColumns = columns.map((column: any) => {
     return columnHelper.accessor(column.id, {
       header: () => <TableHeader column={column} table={table} />,
