@@ -17,6 +17,10 @@ import { useEditDataStore } from './edit-data-store';
 import { omit, pick, cloneDeep } from 'lodash';
 import EditPanel from './edit-panel';
 import { ImportFromXLSX } from './import-from-xlsx';
+import i18n from 'i18next';
+import { initI18next } from './i18n';
+
+initI18next();
 
 export default function LinePage() {
   const { columns, data, commonConfig, config, setData } = useGlobalStore();
@@ -66,10 +70,10 @@ export default function LinePage() {
   useEffect(() => {
     on('get-storage', storage => {
       setStorage(storage);
-      // const language = storage.language || i18n.language;
-      // i18n.changeLanguage(language);
-      // setLanguage(language);
-      // setStorage(storage);
+      const language = storage.language || i18n.language;
+      i18n.changeLanguage(language);
+      setLanguage(language);
+      setStorage(storage);
     });
 
     on('get-document-use-count', documentUseCount => {
