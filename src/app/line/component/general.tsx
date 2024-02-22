@@ -2,7 +2,8 @@ import { useGlobalStore } from '../store';
 import { Switch, Checkbox, ColorPicker, Button } from 'antd';
 
 export default function GeneralConfig() {
-  const { commonConfig, setCommonConfig } = useGlobalStore();
+  const { commonConfig, setCommonConfig, data } = useGlobalStore();
+  console.log(data);
 
   return (
     <div className="flex flex-col gap-4">
@@ -84,7 +85,7 @@ export default function GeneralConfig() {
       <div>
         <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Color</div>
         <div className="flex gap-1">
-          {commonConfig.color.map((color: string, index: number) => {
+          {commonConfig.color.slice(0, data.length).map((color: string, index: number) => {
             return (
               <ColorPicker
                 key={index}

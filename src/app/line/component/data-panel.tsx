@@ -3,9 +3,12 @@ import ReactECharts from 'echarts-for-react';
 import { useGlobalStore } from '../store';
 import { genColumnAndDataFromOption } from '../utils';
 import AddChart from './add-chart';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 export default function PresetCharts() {
   const { setColumns, setData, setConfig, customTemplates } = useGlobalStore();
+  const [selectedId, setSelectedId] = useState(SAMPLES[0].id);
 
   return (
     <div className="flex gap-3 flex-wrap">
@@ -46,15 +49,20 @@ export default function PresetCharts() {
           // dataZoom,
         };
 
+        const cls = clsx('bg-[var(--fig-color-bg-hover)] rounded-md cursor-pointer', {
+          'border-2 border-[#1a1a1a]': selectedId === sample.id,
+        });
+
         return (
           <div
             key={index}
-            className="bg-[var(--fig-color-bg-hover)] rounded-md cursor-pointer"
+            className={cls}
             onClick={() => {
               const { columns, data } = genColumnAndDataFromOption(sample);
               setConfig(sample);
               setColumns(columns);
               setData(data);
+              setSelectedId(sample.id);
             }}
           >
             <ReactECharts
