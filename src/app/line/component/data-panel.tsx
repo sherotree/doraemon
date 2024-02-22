@@ -5,10 +5,16 @@ import { genColumnAndDataFromOption } from '../utils';
 import AddChart from './add-chart';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { useUserStore } from '../user-store';
+import { emit } from '../emit';
 
 export default function PresetCharts() {
+  const { storage, setRoute } = useUserStore();
   const { setColumns, setData, setConfig, customTemplates } = useGlobalStore();
   const [selectedId, setSelectedId] = useState(SAMPLES[0].id);
+
+  const isPro = storage?.license?.result === 'VALID';
+  const isValid = isPro || storage?.documentUseCount < 3;
 
   return (
     <div className="flex gap-3 flex-wrap">
@@ -66,6 +72,11 @@ export default function PresetCharts() {
             key={index}
             className={cls}
             onClick={() => {
+              if (!isValid && index > 2) {
+                setRoute('payment');
+                emit('resize-window', { width: 320, height: 618 });
+                return;
+              }
               const { columns, data } = genColumnAndDataFromOption(sample);
               setConfig(sample);
               setColumns(columns);

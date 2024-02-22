@@ -13,6 +13,7 @@ import { useEditDataStore } from './edit-data-store';
 import { omit, pick, cloneDeep } from 'lodash';
 import EditPanel from './edit-panel';
 import { ImportFromXLSX } from './import-from-xlsx';
+import { useUserStore } from './user-store';
 import i18n from 'i18next';
 
 export default function Home() {

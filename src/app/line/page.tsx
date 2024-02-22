@@ -29,6 +29,7 @@ export default function LinePage() {
       i18n.changeLanguage(language);
       setLanguage(language);
       setStorage(storage);
+      console.log('storage', storage);
     });
 
     on('get-document-use-count', documentUseCount => {
