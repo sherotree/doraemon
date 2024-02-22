@@ -17,6 +17,7 @@ export function Header() {
           <div
             onClick={() => {
               setRoute('payment');
+              emit('resize-window', { width: 320, height: 618 });
             }}
             className="font-bold cursor-pointer bg-[var(--fig-color-bg-component)] text-[var(--fig-color-text-oncomponent)] rounded-[40px] px-1.5 py-0.5 leading-4"
           >

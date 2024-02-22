@@ -2,6 +2,7 @@ import { Input, Button } from 'antd';
 import { useUserStore } from '../../user-store';
 import { ArrowCircleLeftFillIcon } from 'fig-components';
 import i18n from 'i18next';
+import { emit } from '../../emit';
 
 export default function PaymentSuccess() {
   const { license, currentUser, setRoute } = useUserStore();
@@ -34,6 +35,7 @@ export default function PaymentSuccess() {
         type="primary"
         onClick={() => {
           setRoute('home');
+          emit('resize-window', { width: 1000, height: 618 });
         }}
       >
         {i18n.t('Use Plugin')}

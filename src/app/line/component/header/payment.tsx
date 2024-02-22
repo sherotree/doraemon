@@ -25,6 +25,7 @@ export default function Payment() {
           className="w-5 h-5 cursor-pointer text-[#B3B3B3]"
           onClick={() => {
             setRoute('home');
+            emit('resize-window', { width: 1000, height: 618 });
           }}
         />
         <div>{i18n.t('Back to plugin')}</div>
