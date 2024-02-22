@@ -3,7 +3,6 @@ import { Switch, Checkbox, ColorPicker, Button } from 'antd';
 
 export default function GeneralConfig() {
   const { commonConfig, setCommonConfig, data } = useGlobalStore();
-  console.log(data);
 
   return (
     <div className="flex flex-col gap-4">
