@@ -38,11 +38,8 @@ export function Upload(props: IProps) {
   };
 
   return (
-    <Button className="relative cursor-pointer" onClick={() => csvInputRef.current.click()}>
-      <div className="flex items-center justify-center gap-2">
-        <UploadIcon className="h-4 w-4" />
-        <div>{desc}</div>
-      </div>
+    <div className="relative cursor-pointer" onClick={() => csvInputRef.current.click()}>
+      <span className="text-[#007bef]">Import data from xlsx file</span>
       <input
         type="file"
         ref={csvInputRef}
@@ -51,6 +48,23 @@ export function Upload(props: IProps) {
         onChange={handleOnChange}
         className="absolute hidden h-full w-full cursor-pointer opacity-0"
       />
-    </Button>
+    </div>
   );
+
+  // return (
+  //   <Button className="relative cursor-pointer" onClick={() => csvInputRef.current.click()}>
+  //     <div className="flex items-center justify-center gap-2">
+  //       <UploadIcon className="h-4 w-4" />
+  //       <div>{desc}</div>
+  //     </div>
+  //     <input
+  //       type="file"
+  //       ref={csvInputRef}
+  //       title={null}
+  //       accept={accept}
+  //       onChange={handleOnChange}
+  //       className="absolute hidden h-full w-full cursor-pointer opacity-0"
+  //     />
+  //   </Button>
+  // );
 }
