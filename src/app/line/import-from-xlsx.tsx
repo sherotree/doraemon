@@ -1,5 +1,5 @@
 import * as ExcelJS from 'exceljs';
-import { Upload } from './Upload';
+import { Upload } from './component/Upload';
 import { useGlobalStore } from './store';
 
 export function ImportFromXLSX() {

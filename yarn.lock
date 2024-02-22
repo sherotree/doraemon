@@ -1272,10 +1272,10 @@ fig-components@^1.0.8:
   resolved "https://registry.npmmirror.com/fig-components/-/fig-components-1.0.8.tgz#4a8958e624ccf2eeb5f2890563c0b66528a5176f"
   integrity sha512-WIqWiNJeN+CaVd0GQ3J+t/jwAyi2mHmtne6rM6YxhU7KR2Gf7RHACDlIPxznFQMI2w024eX3WSJRyyTb/wZBoA==
 
-fig-css@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmmirror.com/fig-css/-/fig-css-1.0.2.tgz#b3448d2f30f503efbfd35b6fe3d8008229f5ed94"
-  integrity sha512-33he9zOPs+pCTFVww77+le2ncH8Nk8CRDKXIGpJRnW3sCv2kd3ClwjWR3zxkstlrpUxjEIy4a2PvBcBxSgOF4g==
+fig-css@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/fig-css/-/fig-css-1.0.4.tgz#bd577b12758d7f90567637396c0483ac69d6bfdb"
+  integrity sha512-fzxNQKnFYb0R6kYymjnXbC68bldKJ+HHf+ARzxdNWIzozv5sg8B9j81mn0s0zcEKc7Q7h+TAl/AXzuI85Ziqig==
 
 fig-tools@^1.0.1:
   version "1.0.1"

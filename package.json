@@ -23,7 +23,7 @@
     "echarts-for-react": "3.0.2",
     "exceljs": "4.4.0",
     "fig-components": "^1.0.8",
-    "fig-css": "^1.0.2",
+    "fig-css": "^1.0.4",
     "fig-tools": "^1.0.1",
     "html-to-image": "1.11.11",
     "i18next": "^23.7.16",
