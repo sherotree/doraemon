@@ -16,7 +16,7 @@ body {
 
 body {
   background: var(--fig-color-bg);
-  font-siez: 12px;
+  font-size: 12px;
   color: var(--fig-color-text);
   margin: 0;
 }

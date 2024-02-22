@@ -31,7 +31,7 @@ export default function Payment() {
         <div>{i18n.t('Back to plugin')}</div>
       </div>
       <div className="text-[60px] mt-12">🚀</div>
-      <div className="text-[20px] font-bold mt-8">{i18n.t('Upgrade to Uwarp PRO')}</div>
+      <div className="text-[20px] font-bold mt-8">{i18n.t('Upgrade to PRO')}</div>
       <Input
         status={isError ? 'error' : null}
         className="mt-3 w-full"
@@ -83,7 +83,7 @@ export default function Payment() {
             window.open('https://gumroad.com/');
           }}
         >
-          {i18n.t('Get Pro License')} ($5/{i18n.t('Year')})
+          {i18n.t('Get Pro License')} ($1/{i18n.t('Month')})
         </Button>
       </ConfigProvider>
     </div>
