@@ -88,7 +88,7 @@ export default function EditPanel(props) {
       <div>
         <div className="bg-[var(--fig-color-bg-hover)] flex items-center justify-center py-6">
           <ReactECharts
-            style={{ width: 400, height: 180, backgroundColor: '#ffffff' }}
+            style={{ width: 500, height: 180, backgroundColor: '#ffffff' }}
             notMerge
             option={configOption}
             theme={commonConfig.theme}

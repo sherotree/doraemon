@@ -47,7 +47,7 @@ export const SMALL_CHART_IMMUTABLE_CONFIG = {
   },
 };
 
-const names = ['Orange', 'Tomato', 'Apple', 'Sakana', 'Banana', 'Snappy Fish', 'Lemon', 'Pasta'];
+const names = ['Orange', 'Tomato', 'Apple', 'Sakana', 'Lemon'];
 const years = ['2001', '2002', '2003', '2004', '2005', '2006'];
 const shuffle = array => {
   let currentIndex = array.length;
@@ -435,7 +435,7 @@ const DISTRIBUTION_OF_ELECTRICITY = {
         data: [
           [
             {
-              name: 'Morning Peak',
+              name: 'Peak 1',
               xAxis: '07:30',
             },
             {
@@ -444,7 +444,7 @@ const DISTRIBUTION_OF_ELECTRICITY = {
           ],
           [
             {
-              name: 'Evening Peak',
+              name: 'Peak 2',
               xAxis: '17:30',
             },
             {

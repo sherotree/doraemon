@@ -1,5 +1,6 @@
 import { useGlobalStore } from '../store';
-import { Switch, Checkbox, ColorPicker, Button } from 'antd';
+import { Switch, Checkbox, ColorPicker } from 'antd';
+import { RefreshIcon } from 'fig-components';
 
 export default function GeneralConfig() {
   const { commonConfig, setCommonConfig, data } = useGlobalStore();
@@ -26,14 +27,14 @@ export default function GeneralConfig() {
       <div>
         <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Common Config</div>
         <div className="flex flex-col gap-2">
-          <Checkbox
+          {/* <Checkbox
             checked={commonConfig.title.show}
             onChange={e => {
               setCommonConfig({ title: { show: e.target.checked } });
             }}
           >
             Show Title
-          </Checkbox>
+          </Checkbox> */}
           <Checkbox
             checked={commonConfig.xAxis.show}
             onChange={e => {
@@ -83,12 +84,12 @@ export default function GeneralConfig() {
 
       <div>
         <div className="text-[11px] text-[var(--fig-color-text-secondary)] mb-1">Color</div>
-        <div className="flex gap-1">
+        <div className="flex gap-1 items-center flex-wrap">
           {commonConfig.color.slice(0, data.length).map((color: string, index: number) => {
             return (
               <ColorPicker
                 key={index}
-                defaultValue={color}
+                value={color}
                 size="small"
                 onChange={(_, value) => {
                   const color = commonConfig.color;
@@ -98,6 +99,28 @@ export default function GeneralConfig() {
               />
             );
           })}
+          <RefreshIcon
+            className="w-4 h-4 ml-1 cursor-pointer"
+            onClick={() => {
+              const COLORS = [
+                '#5470c6',
+                '#91cc75',
+                '#fac858',
+                '#ee6666',
+                '#73c0de',
+                '#3ba272',
+                '#fc8452',
+                '#9a60b4',
+                '#ea7ccc',
+              ];
+              const randomColor = () => COLORS[Math.floor(Math.random() * COLORS.length)];
+              const color = commonConfig.color;
+              commonConfig.color.slice(0, data.length).forEach((_, index) => {
+                color[index] = randomColor();
+              });
+              setCommonConfig({ color });
+            }}
+          />
         </div>
       </div>
     </div>

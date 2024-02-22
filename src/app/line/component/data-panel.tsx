@@ -44,13 +44,21 @@ export default function PresetCharts() {
           title,
           yAxis: { show: false },
           xAxis,
-          series,
+          series: series.map((item: any) => {
+            return {
+              ...item,
+              symbolSize: 2,
+              lineStyle: {
+                width: 1,
+              },
+            };
+          }),
           visualMap,
           // dataZoom,
         };
 
         const cls = clsx('bg-[var(--fig-color-bg-hover)] rounded-md cursor-pointer', {
-          'border-2 border-[#1a1a1a]': selectedId === sample.id,
+          'outline outline-2 outline-[#1a1a1a]': selectedId === sample.id,
         });
 
         return (
@@ -66,7 +74,7 @@ export default function PresetCharts() {
             }}
           >
             <ReactECharts
-              style={{ width: 234 * 0.56, height: 175 * 0.56 }}
+              style={{ width: 234 * 0.56, height: 175 * 0.56 * 0.8 }}
               option={option}
               // theme={commonConfig.theme}
               opts={{ renderer: 'svg' }}

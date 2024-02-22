@@ -1,13 +1,12 @@
 'use client';
 
-import { ConfigProvider, Button, Drawer } from 'antd';
-import { useState, useEffect, useRef } from 'react';
+import { Button } from 'antd';
+import { useState, useRef } from 'react';
 import { useGlobalStore } from './store';
-import { useTheme, RefreshIcon, StudyIcon } from 'fig-components';
+import { RefreshIcon, StudyIcon } from 'fig-components';
 import GeneralConfig from './component/general';
 import DataPanel from './component/data-panel';
-import { emit, on } from './emit';
-import { useUserStore } from './user-store';
+import { emit } from './emit';
 import ReactECharts from 'echarts-for-react';
 import { Header } from './component/header';
 import { useEditDataStore } from './edit-data-store';
@@ -18,7 +17,6 @@ import i18n from 'i18next';
 
 export default function Home() {
   const { columns, data, commonConfig, config, setData } = useGlobalStore();
-  const { setLanguage, setStorage, setDocumentUseCount } = useUserStore();
   const editDataStore = useEditDataStore();
   const [open, setOpen] = useState(false);
   const ref = useRef<any>(null!);
@@ -65,7 +63,7 @@ export default function Home() {
             key={configOption.color.join('')}
           >
             <ReactECharts
-              style={{ width: '100%', height: 240, backgroundColor: '#ffffff' }}
+              style={{ width: 664, height: 240, backgroundColor: '#ffffff' }}
               notMerge
               option={configOption}
               theme={commonConfig.theme}
