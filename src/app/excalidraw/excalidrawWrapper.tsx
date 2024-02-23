@@ -7,7 +7,7 @@ import data2 from './data-processing.json';
 import data3 from './stick-figures.json';
 import { useUserStore } from './user-store';
 import { getSvgStringFromElement } from '@/utils/get-svg-string-from-element';
-import { emit } from './emit';
+import { emit, on } from './emit';
 import Payment from './components/payment';
 
 const ExcalidrawWrapper: React.FC = () => {
@@ -16,6 +16,24 @@ const ExcalidrawWrapper: React.FC = () => {
 
   const isPro = storage?.license?.result === 'VALID';
   const isValid = isPro || storage?.documentUseCount < 3;
+
+  console.log('storage', storage, isPro);
+
+  useEffect(() => {
+    emit('get-storage');
+    emit('get-document-use-count');
+  }, []);
+
+  useEffect(() => {
+    on('get-storage', storage => {
+      setStorage(storage);
+      console.log('1111', storage);
+    });
+
+    on('get-document-use-count', documentUseCount => {
+      setDocumentUseCount(documentUseCount);
+    });
+  }, []);
 
   return (
     <>

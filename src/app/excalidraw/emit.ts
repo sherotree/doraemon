@@ -7,3 +7,11 @@ export const emit = function (name: string, ...args: any): void {
     '*',
   );
 };
+
+export const on = function (name: string, callback: (data: any) => void): void {
+  window.addEventListener('message', event => {
+    if (event.data.pluginMessage && event.data.pluginMessage[0] === name) {
+      callback(event.data.pluginMessage[1]);
+    }
+  });
+};
