@@ -11,13 +11,11 @@ import { emit, on } from './emit';
 import Payment from './components/payment';
 
 const ExcalidrawWrapper: React.FC = () => {
-  const { setLanguage, setStorage, setDocumentUseCount, route, setRoute, storage } = useUserStore();
+  const { setStorage, setDocumentUseCount, route, setRoute, storage } = useUserStore();
   const [excalidrawAPI, setExcalidrawAPI] = useState<any>(null);
 
   const isPro = storage?.license?.result === 'VALID';
-  const isValid = isPro || storage?.documentUseCount < 3;
-
-  console.log('storage', storage, isPro);
+  const isValid = isPro || storage?.documentUseCount < 10;
 
   useEffect(() => {
     emit('get-storage');
@@ -27,7 +25,6 @@ const ExcalidrawWrapper: React.FC = () => {
   useEffect(() => {
     on('get-storage', storage => {
       setStorage(storage);
-      console.log('1111', storage);
     });
 
     on('get-document-use-count', documentUseCount => {
