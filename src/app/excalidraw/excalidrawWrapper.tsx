@@ -15,7 +15,7 @@ const ExcalidrawWrapper: React.FC = () => {
   const [excalidrawAPI, setExcalidrawAPI] = useState<any>(null);
 
   const isPro = storage?.license?.result === 'VALID';
-  const isValid = isPro || storage?.documentUseCount < 10;
+  const isValid = isPro || (storage?.documentUseCount ?? 0) < 10;
 
   useEffect(() => {
     emit('get-storage');
