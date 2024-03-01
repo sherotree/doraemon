@@ -1,5 +1,5 @@
 import { Input, Button, ConfigProvider } from 'antd';
-import { validateGumroadLicenseKeyUiAsync } from '../gumroad/validate-gumroad-license-key-ui-async';
+import { validateGumroadLicenseKeyUiAsync } from '@/utils/gumroad/validate-gumroad-license-key-ui-async';
 import { useState } from 'react';
 import PaymentSuccess from './payment-success';
 import { useUserStore } from '../user-store';
