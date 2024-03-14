@@ -63,9 +63,11 @@ export default function PresetCharts() {
           // dataZoom,
         };
 
-        const cls = clsx('bg-[var(--fig-color-bg-hover)] rounded-md cursor-pointer', {
+        const cls = clsx('bg-[var(--fig-color-bg-hover)] rounded-md cursor-pointer relative', {
           'outline outline-2 outline-[#1a1a1a]': selectedId === sample.id,
         });
+
+        const isFree = index < 3;
 
         return (
           <div
@@ -84,6 +86,19 @@ export default function PresetCharts() {
               setSelectedId(sample.id);
             }}
           >
+            {isFree && (
+              <div
+                className="absolute right-1 top-1 text-white px-1 py-0.5 text-xs rounded-sm"
+                style={{ background: 'rgba(0, 0, 0, 0.7)' }}
+              >
+                Free
+              </div>
+            )}
+            {!isFree && (
+              <div className="absolute right-1 top-1 text-white px-1 py-0.5 text-xs rounded-sm bg-[var(--fig-color-bg-component)] z-50">
+                Pro
+              </div>
+            )}
             <ReactECharts
               style={{ width: 234 * 0.56, height: 175 * 0.56 * 0.8 }}
               option={option}
