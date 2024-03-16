@@ -53,7 +53,7 @@ export default function Payment() {
         onClick={async () => {
           const res = await validateGumroadLicenseKeyUiAsync({
             // productId: '5PIqJvhRWMhjPPpEtQfYMA==',
-            productId: '9hBvaY_1cdSEMRq46Bd3Gw==',
+            productId: 'WFUR6rl5bSdbzZdhkRHMRw==',
             licenseKey,
             // licenseKey: 'CF578DC0-79774D60-86C0068C-F850A142',
           });
@@ -83,7 +83,7 @@ export default function Payment() {
             window.open('https://uwarp.gumroad.com/l/excalidraw');
           }}
         >
-          Get Pro License ($1/quarterly)
+          Get Pro License ($1/permanently)
         </Button>
       </ConfigProvider>
     </div>
