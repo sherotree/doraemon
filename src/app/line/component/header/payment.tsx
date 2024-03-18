@@ -83,7 +83,7 @@ export default function Payment() {
             window.open('https://gumroad.com/');
           }}
         >
-          {i18n.t('Get Pro License')} ($1/{i18n.t('Month')})
+          {i18n.t('Get Pro License')} ($1/permanently)
         </Button>
       </ConfigProvider>
     </div>
