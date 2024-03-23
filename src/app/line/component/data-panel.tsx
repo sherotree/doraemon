@@ -14,7 +14,7 @@ export default function PresetCharts() {
   const [selectedId, setSelectedId] = useState(SAMPLES[0].id);
 
   const isPro = storage?.license?.result === 'VALID';
-  const isValid = isPro || storage?.documentUseCount < 3;
+  const isValid = isPro || storage?.documentUseCount < 12;
 
   return (
     <div className="flex gap-3 flex-wrap">
