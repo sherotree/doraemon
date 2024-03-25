@@ -67,18 +67,18 @@ export default function PresetCharts() {
           'outline outline-2 outline-[#1a1a1a]': selectedId === sample.id,
         });
 
-        const isFree = index < 3;
+        const isFree = index < 3000;
 
         return (
           <div
             key={index}
             className={cls}
             onClick={() => {
-              if (!isValid && index > 2) {
-                setRoute('payment');
-                emit('resize-window', { width: 320, height: 618 });
-                return;
-              }
+              // if (!isValid && index > 2) {
+              //   setRoute('payment');
+              //   emit('resize-window', { width: 320, height: 618 });
+              //   return;
+              // }
               const { columns, data } = genColumnAndDataFromOption(sample);
               setConfig(sample);
               setColumns(columns);
@@ -86,7 +86,7 @@ export default function PresetCharts() {
               setSelectedId(sample.id);
             }}
           >
-            {isFree && (
+            {/* {isFree && (
               <div
                 className="absolute right-1 top-1 text-white px-1 py-0.5 text-xs rounded-sm"
                 style={{ background: 'rgba(0, 0, 0, 0.7)' }}
@@ -98,7 +98,7 @@ export default function PresetCharts() {
               <div className="absolute right-1 top-1 text-white px-1 py-0.5 text-xs rounded-sm bg-[var(--fig-color-bg-component)] z-50">
                 Pro
               </div>
-            )}
+            )} */}
             <ReactECharts
               style={{ width: 234 * 0.56, height: 175 * 0.56 * 0.8 }}
               option={option}

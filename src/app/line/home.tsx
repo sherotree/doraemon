@@ -91,11 +91,17 @@ export default function Home() {
                         const omitData = omit(item, ['seriesConfig', 'rowKey']);
                         const current = pick(item, ['seriesConfig', 'rowKey']);
                         const randomData = {};
+
+                        const values = Object.values(omitData);
+                        const min = Math.min(...values);
+                        const max = Math.max(...values);
+                        const avg = values.reduce((acc, cur) => acc + cur, 0) / values.length;
+
                         Object.keys(omitData).forEach(key => {
                           const randomValue = Math.random();
                           const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
                           const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
-                          randomData[key] = Math.ceil(omitData[key] * ratio);
+                          randomData[key] = Math.ceil((omitData[key] * ratio + avg) / 2);
                         });
                         _data.push({ ...current, ...randomData });
                       });
