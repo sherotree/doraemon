@@ -100,8 +100,10 @@ export default function Home() {
                         Object.keys(omitData).forEach(key => {
                           const randomValue = Math.random();
                           const isOdd = Math.ceil(randomValue * 10) % 2 === 0;
-                          const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.6), 1.4);
-                          randomData[key] = Math.ceil((omitData[key] * ratio + avg) / 2);
+                          const ratio = Math.min(Math.max(isOdd ? 1 + randomValue : 1 - randomValue, 0.1), 2);
+                          randomData[key] = Math.ceil(
+                            (omitData[key] * Math.max(Math.random() * 2, 0.2) * ratio + avg) / 2,
+                          );
                         });
                         _data.push({ ...current, ...randomData });
                       });
